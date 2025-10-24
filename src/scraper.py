@@ -70,7 +70,5 @@ def safe_filename_from_url(url):
 if __name__ == "__main__":
     pdf_links = fetch_pdf_links(START_URL)
     print(f"Gefundene PDF-Links: {len(pdf_links)}")
-    for link in pdf_links[:3]:
-        print(link)
     
     download_pdfs(pdf_links)

@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+from pathlib import Path
 
 # Page Config
 st.set_page_config(
@@ -182,17 +183,27 @@ st.markdown("""
 
 # Cache für Performance
 @st.cache_resource
-def load_analyzer(data_dir="../data/processed"):
-    """Lädt den Analyzer (wird gecacht)"""
+def load_analyzer(data_dir=None):
+    if data_dir is None:
+        # Versuche verschiedene Pfade
+        possible_paths = [
+            Path("data/processed"),  # Streamlit Cloud
+            Path("../data/processed"),  # Lokal
+            Path(__file__).parent.parent / "data" / "processed"  # Absolut
+        ]
+        
+        for path in possible_paths:
+            if path.exists():
+                data_dir = str(path)
+                break
+        else:
+            data_dir = "data/processed"  # Fallback
+    
     try:
         from analyzer import HandballAnalyzer
         return HandballAnalyzer(data_dir=data_dir)
     except FileNotFoundError:
         st.error(f"❌ Daten nicht gefunden in: {data_dir}")
-        st.info("Stelle sicher, dass die CSV-Dateien existieren:\n- spiele.csv\n- spieler_statistiken.csv\n- spielereignisse.csv")
-        return None
-    except Exception as e:
-        st.error(f"Fehler beim Laden der Daten: {e}")
         return None
 
 @st.cache_resource

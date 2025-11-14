@@ -1,0 +1,47 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.7666666666666666,Heim,1.0,0.0,"Funk, Adrian",Tor
+3.6333333333333333,Heim,2.0,0.0,"Benefeldt, Niklas",Tor
+3.8166666666666664,Gast,2.0,1.0,"Langemeyer, Florian",Tor
+4.516666666666667,Heim,3.0,1.0,"Krause, Hannes",7m-Tor
+4.9,Gast,3.0,2.0,"Noll, Christian",Tor
+8.416666666666666,Heim,4.0,2.0,"Krause, Hannes",7m-Tor
+9.933333333333334,Gast,4.0,3.0,"Noll, Sven",Tor
+10.666666666666666,Heim,5.0,3.0,"Wietfeld, Jonas",Tor
+11.166666666666666,Gast,5.0,4.0,"Bahn, Kjell",Tor
+12.933333333333334,Gast,5.0,5.0,"Noll, Christian",Tor
+14.85,Gast,5.0,6.0,"Tepp, Adrian",Tor
+16.5,Heim,6.0,6.0,"Benefeldt, Niklas",Tor
+18.383333333333333,Heim,7.0,6.0,"Bendrien, Paul",Tor
+20.666666666666668,Gast,7.0,7.0,"Schulz, Cedric",7m-Tor
+24.7,Heim,8.0,7.0,"Krause, Hannes",7m-Tor
+25.233333333333334,Heim,9.0,7.0,"Krause, Hannes",7m-Tor
+28.566666666666666,Heim,10.0,7.0,"Rauls, Niklas",Tor
+29.733333333333334,Gast,10.0,8.0,"Schulz, Cedric",7m-Tor
+31.583333333333332,Gast,10.0,9.0,"Radke, Arne",Tor
+32.43333333333333,Gast,10.0,10.0,"Radke, Arne",Tor
+33.6,Heim,11.0,10.0,"Bendrien, Tom",Tor
+34.2,Heim,12.0,10.0,"Funk, Adrian",Tor
+34.7,Gast,12.0,11.0,"Kulisch, Björn Ole",Tor
+35.733333333333334,Gast,12.0,12.0,"Langemeyer, Florian",Tor
+38.2,Heim,13.0,12.0,"Rauls, Niklas",Tor
+38.7,Heim,14.0,12.0,"Funk, Adrian",Tor
+39.5,Gast,14.0,13.0,"Noll, Sven",Tor
+40.15,Heim,15.0,13.0,"Zawade, Ole",Tor
+40.333333333333336,Gast,15.0,14.0,"Langemeyer, Florian",Tor
+40.86666666666667,Heim,16.0,14.0,"Funk, Adrian",Tor
+41.45,Gast,16.0,15.0,"Kulisch, Björn Ole",Tor
+42.31666666666667,Gast,16.0,16.0,"Radke, Arne",Tor
+46.55,Heim,17.0,16.0,"Benefeldt, Niklas",Tor
+47.833333333333336,Gast,17.0,17.0,"Noll, Christian",Tor
+48.4,Gast,17.0,18.0,"Schulz, Cedric",Tor
+49.78333333333333,Gast,17.0,19.0,"Tepp, Adrian",Tor
+52.25,Heim,18.0,19.0,"Benefeldt, Niklas",Tor
+52.45,Gast,18.0,20.0,"Noll, Christian",Tor
+53.65,Heim,19.0,20.0,"Benefeldt, Niklas",Tor
+55.4,Heim,20.0,20.0,"Benefeldt, Niklas",Tor
+56.583333333333336,Gast,20.0,21.0,"Noll, Sven",Tor
+56.86666666666667,Gast,20.0,22.0,"Kulisch, Björn Ole",Tor
+58.71666666666667,Heim,21.0,22.0,"Rauls, Niklas",Tor
+59.18333333333333,Gast,21.0,23.0,"Noll, Sven",Tor
+59.483333333333334,Heim,22.0,23.0,"Wietfeld, Jonas",Tor
+59.9,Gast,22.0,24.0,"Noll, Christian",Tor

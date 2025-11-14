@@ -1,0 +1,52 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+0.5833333333333334,Heim,1.0,0.0,"Nabel, Philipp",Tor
+3.3666666666666667,Gast,1.0,1.0,"Cordes, Hinnerk Peter",Tor
+4.0,Heim,2.0,1.0,"Vahldiek, Jan-Hendrik",7m-Tor
+4.633333333333333,Heim,3.0,1.0,"Behrens, Malte",Tor
+5.533333333333333,Heim,4.0,1.0,"Nabel, Philipp",Tor
+6.233333333333333,Heim,5.0,1.0,"Vahldiek, Kai",Tor
+7.466666666666667,Gast,5.0,2.0,"Cordes, Hinnerk Peter",Tor
+8.266666666666667,Gast,5.0,3.0,"Cordes, Hinnerk Peter",Tor
+10.116666666666667,Heim,6.0,3.0,"Gerloff, Gerrit",Tor
+11.016666666666667,Heim,7.0,3.0,"Gerloff, Gerrit",Tor
+14.133333333333333,Heim,8.0,3.0,"Nabel, Philipp",Tor
+16.066666666666666,Heim,9.0,3.0,"Nabel, Philipp",Tor
+16.716666666666665,Gast,9.0,4.0,"Cordes, Hinnerk Peter",7m-Tor
+17.566666666666666,Heim,10.0,4.0,"Gerloff, Gerrit",Tor
+18.433333333333334,Gast,10.0,5.0,"Schultze, Marten",Tor
+19.65,Gast,10.0,6.0,"Lang, Maxim",Tor
+21.016666666666666,Gast,10.0,7.0,"Sültmann, Malte",Tor
+21.716666666666665,Heim,11.0,7.0,"Vahldiek, Kai",Tor
+22.233333333333334,Gast,11.0,8.0,"Hillebrand, Jannes",Tor
+23.233333333333334,Gast,11.0,9.0,"Hillebrand, Jannes",Tor
+24.483333333333334,Heim,12.0,9.0,"Vahldiek, Jan-Hendrik",7m-Tor
+25.05,Gast,12.0,10.0,"Cordes, Hinnerk Peter",Tor
+25.866666666666667,Heim,13.0,10.0,"Schoel, Martin",Tor
+26.633333333333333,Heim,14.0,10.0,"Behrens, Malte",Tor
+26.766666666666666,Gast,14.0,11.0,"Cordes, Hinnerk Peter",Tor
+28.283333333333335,Gast,14.0,12.0,"Sültmann, Malte",Tor
+29.316666666666666,Heim,15.0,12.0,"Nabel, Philipp",Tor
+30.916666666666668,Heim,16.0,12.0,"Schoel, Martin",Tor
+32.61666666666667,Heim,17.0,12.0,"Vahldiek, Kai",Tor
+33.81666666666667,Heim,18.0,12.0,"Nabel, Philipp",Tor
+35.25,Gast,18.0,13.0,"Schenk, Jannis",Tor
+36.266666666666666,Heim,19.0,13.0,"Schoel, Martin",Tor
+36.8,Gast,19.0,14.0,"Cordes, Hinnerk Peter",Tor
+37.35,Heim,20.0,14.0,"Vahldiek, Kai",Tor
+38.06666666666667,Gast,20.0,15.0,"Schiller, Marvin",Tor
+38.78333333333333,Gast,20.0,16.0,"Schenk, Jannis",Tor
+39.7,Heim,21.0,16.0,"Gerloff, Gerrit",Tor
+40.766666666666666,Gast,21.0,17.0,"Cordes, Hinnerk Peter",Tor
+42.1,Heim,22.0,17.0,"Vahldiek, Jan-Hendrik",7m-Tor
+42.833333333333336,Heim,23.0,17.0,"Vahldiek, Jan-Hendrik",Tor
+43.43333333333333,Gast,23.0,18.0,"Schenk, Jannis",Tor
+47.43333333333333,Gast,23.0,19.0,"Cordes, Hinnerk Peter",7m-Tor
+48.983333333333334,Gast,23.0,20.0,"Schenk, Jannis",Tor
+52.15,Gast,23.0,21.0,"Cordes, Hinnerk Peter",Tor
+53.75,Gast,23.0,22.0,"Hillebrand, Jannes",Tor
+56.416666666666664,Heim,24.0,22.0,"Gerloff, Gerrit",Tor
+57.46666666666667,Heim,25.0,22.0,"Vahldiek, Jan-Hendrik",Tor
+57.8,Gast,25.0,23.0,"Cordes, Hinnerk Peter",7m-Tor
+59.21666666666667,Gast,25.0,24.0,"Cordes, Hinnerk Peter",Tor
+59.61666666666667,Heim,26.0,24.0,"Vahldiek, Jan-Hendrik",Tor
+59.75,Gast,26.0,25.0,"Cordes, Hinnerk Peter",Tor

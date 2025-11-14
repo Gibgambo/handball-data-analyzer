@@ -1,0 +1,69 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+0.5166666666666667,Gast,0.0,1.0,"Gerloff, Gerrit",Tor
+0.7166666666666667,Heim,1.0,1.0,"Fürch, Maximilian",Tor
+1.1333333333333333,Gast,1.0,2.0,"Gerloff, Gerrit",Tor
+1.8833333333333333,Heim,2.0,2.0,"Ludwig, Paul Mattes",Tor
+2.9,Gast,2.0,3.0,"Gerloff, Gerrit",Tor
+3.1,Heim,3.0,3.0,"Ludwig, Paul Mattes",Tor
+4.916666666666667,Heim,4.0,3.0,"Ludwig, Paul Mattes",7m-Tor
+7.283333333333333,Heim,5.0,3.0,"Jäger, Vasco",7m-Tor
+7.833333333333333,Gast,5.0,4.0,"Albrecht, Lars",Tor
+9.716666666666667,Gast,5.0,5.0,"Schreiner, Jannik",Tor
+9.883333333333333,Heim,6.0,5.0,"Jäger, Vasco",7m-Tor
+11.633333333333333,Gast,6.0,6.0,"Behrens, Malte",Tor
+11.783333333333333,Heim,7.0,6.0,"Ludwig, Paul Mattes",Tor
+12.85,Gast,7.0,7.0,"Behrens, Malte",Tor
+14.0,Heim,8.0,7.0,"Mertins, Phil",Tor
+14.966666666666667,Gast,8.0,8.0,"Maack, Shawn Nicolas",Tor
+15.1,Heim,9.0,8.0,"Boithling, Aaron",Tor
+16.05,Gast,9.0,9.0,"Behrens, Malte",Tor
+17.733333333333334,Heim,10.0,9.0,"Ludwig, Paul Mattes",Tor
+17.983333333333334,Gast,10.0,10.0,"Gerloff, Gerrit",Tor
+18.816666666666666,Gast,10.0,11.0,"Gerloff, Gerrit",Tor
+21.666666666666668,Gast,10.0,12.0,"Albrecht, Lars",Tor
+22.166666666666668,Heim,11.0,12.0,"Fürch, Maximilian",Tor
+23.533333333333335,Heim,12.0,12.0,"Borchert, Darius",Tor
+23.95,Gast,12.0,13.0,"Albrecht, Lars",Tor
+24.433333333333334,Heim,13.0,13.0,"Jäger, Vasco",Tor
+24.75,Gast,13.0,14.0,"Gerloff, Gerrit",Tor
+25.266666666666666,Heim,14.0,14.0,"Jäger, Vasco",7m-Tor
+26.15,Gast,14.0,15.0,"Gerloff, Gerrit",7m-Tor
+26.35,Heim,15.0,15.0,"Borchert, Darius",Tor
+26.883333333333333,Gast,15.0,16.0,"Schreiner, Jannik",Tor
+28.05,Heim,16.0,16.0,"Mertins, Phil",Tor
+28.25,Gast,16.0,17.0,"Gerloff, Gerrit",7m-Tor
+29.433333333333334,Gast,16.0,18.0,"Schreiner, Jannik",Tor
+30.35,Heim,17.0,18.0,"Tebel, Steen",Tor
+31.883333333333333,Gast,17.0,19.0,"Gerloff, Gerrit",7m-Tor
+32.4,Heim,18.0,19.0,"Jäger, Vasco",Tor
+33.5,Heim,19.0,19.0,"Jäger, Vasco",Tor
+33.833333333333336,Gast,19.0,20.0,"Nabel, Philipp",Tor
+35.06666666666667,Gast,19.0,21.0,"Nabel, Philipp",Tor
+35.666666666666664,Gast,19.0,22.0,"Nabel, Philipp",Tor
+36.06666666666667,Heim,20.0,22.0,"Fürch, Maximilian",Tor
+38.333333333333336,Heim,21.0,22.0,"Boithling, Aaron",7m-Tor
+38.96666666666667,Gast,21.0,23.0,"Gerloff, Gerrit",7m-Tor
+39.46666666666667,Heim,22.0,23.0,"Mertins, Phil",Tor
+39.88333333333333,Gast,22.0,24.0,"Gerloff, Gerrit",Tor
+41.13333333333333,Gast,22.0,25.0,"Nabel, Philipp",Tor
+41.266666666666666,Heim,23.0,25.0,"Boithling, Aaron",Tor
+42.28333333333333,Gast,23.0,26.0,"Gerloff, Gerrit",7m-Tor
+42.86666666666667,Heim,24.0,26.0,"Mertins, Phil",Tor
+43.31666666666667,Gast,24.0,27.0,"Albrecht, Lars",Tor
+43.53333333333333,Heim,25.0,27.0,"Jäger, Vasco",Tor
+44.06666666666667,Gast,25.0,28.0,"Schreiner, Jannik",Tor
+45.28333333333333,Gast,25.0,29.0,"Schreiner, Jannik",7m-Tor
+46.7,Gast,25.0,30.0,"Rösner, Niels",Tor
+47.083333333333336,Heim,26.0,30.0,"Tebel, Steen",Tor
+47.68333333333333,Gast,26.0,31.0,"Albrecht, Lars",Tor
+47.88333333333333,Heim,27.0,31.0,"Fürch, Maximilian",Tor
+48.5,Gast,27.0,32.0,"Gerloff, Gerrit",Tor
+48.666666666666664,Heim,28.0,32.0,"Tebel, Steen",Tor
+49.28333333333333,Gast,28.0,33.0,"Schreiner, Jannik",Tor
+49.583333333333336,Heim,29.0,33.0,"Tebel, Steen",Tor
+50.03333333333333,Heim,30.0,33.0,"Ludwig, Paul Mattes",Tor
+50.55,Gast,30.0,34.0,"Nabel, Philipp",Tor
+51.233333333333334,Gast,30.0,35.0,"Rösner, Niels",Tor
+52.75,Gast,30.0,36.0,"Schreiner, Jannik",Tor
+54.2,Heim,31.0,36.0,"Ludwig, Paul Mattes",Tor
+54.5,Heim,32.0,36.0,"Lechner, Jona Bennet",Tor

@@ -1,0 +1,70 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.2833333333333332,Gast,0.0,1.0,"Tebel, Steen",Tor
+2.3833333333333333,Gast,0.0,2.0,"Ludwig, Paul Mattes",7m-Tor
+3.6166666666666667,Heim,1.0,2.0,"Gronotte, Peter",Tor
+3.95,Heim,2.0,2.0,"Gronotte, Peter",Tor
+7.3,Heim,3.0,2.0,"Huhnoldt, Hauke",Tor
+7.883333333333333,Heim,4.0,2.0,"Espenschied, Finn",Tor
+9.3,Gast,4.0,3.0,"Ludwig, Paul Mattes",Tor
+9.683333333333334,Heim,5.0,3.0,"Gronotte, Peter",Tor
+9.85,Gast,5.0,4.0,"Tebel, Steen",Tor
+9.95,Heim,6.0,4.0,"Kobbe, Felix",Tor
+12.466666666666667,Heim,7.0,4.0,"Huhnoldt, Hauke",Tor
+14.016666666666667,Gast,7.0,5.0,"Ludwig, Paul Mattes",Tor
+14.533333333333333,Gast,7.0,6.0,"Mertins, Phil",Tor
+15.0,Heim,8.0,6.0,"Thomas, Kai-Philipp",Tor
+15.483333333333333,Gast,8.0,7.0,"Ludwig, Paul Mattes",Tor
+15.633333333333333,Heim,9.0,7.0,"Huhnoldt, Hauke",Tor
+16.1,Gast,9.0,8.0,"Hanke, Till",Tor
+16.266666666666666,Heim,10.0,8.0,"Kowollik, Lennart",Tor
+17.966666666666665,Heim,11.0,8.0,"Kowollik, Lennart",Tor
+18.383333333333333,Gast,11.0,9.0,"Tebel, Steen",Tor
+18.566666666666666,Heim,12.0,9.0,"Kowollik, Lennart",Tor
+20.05,Heim,13.0,9.0,"Conrad, Til",7m-Tor
+20.766666666666666,Heim,14.0,9.0,"Erxleben, Lars",Tor
+21.816666666666666,Heim,15.0,9.0,"Erxleben, Lars",Tor
+22.35,Heim,16.0,9.0,"Conrad, Til",Tor
+23.366666666666667,Heim,17.0,9.0,"Gronotte, Peter",Tor
+23.7,Gast,17.0,10.0,"Ludwig, Paul Mattes",Tor
+24.516666666666666,Heim,18.0,10.0,"Conrad, Til",7m-Tor
+24.733333333333334,Gast,18.0,11.0,"Ludwig, Paul Mattes",Tor
+25.266666666666666,Gast,18.0,12.0,"Mertins, Phil",Tor
+25.666666666666668,Heim,19.0,12.0,"Conrad, Til",7m-Tor
+27.533333333333335,Gast,19.0,13.0,"Mertins, Phil",Tor
+27.933333333333334,Heim,20.0,13.0,"Conrad, Til",Tor
+28.066666666666666,Gast,20.0,14.0,"Lechner, Jona Bennet",Tor
+31.033333333333335,Gast,20.0,15.0,"Ludwig, Paul Mattes",7m-Tor
+31.683333333333334,Gast,20.0,16.0,"Fürch, Maximilian",Tor
+32.95,Gast,20.0,17.0,"Borchert, Darius",Tor
+35.61666666666667,Gast,20.0,18.0,"Ludwig, Paul Mattes",Tor
+36.8,Gast,20.0,19.0,"Mertins, Phil",Tor
+37.05,Heim,21.0,19.0,"Kobbe, Felix",Tor
+38.35,Gast,21.0,20.0,"Borchert, Darius",Tor
+38.7,Heim,22.0,20.0,"Conrad, Til",Tor
+38.916666666666664,Gast,22.0,21.0,"Tebel, Steen",Tor
+39.21666666666667,Heim,23.0,21.0,"Rutz, Malte",Tor
+40.61666666666667,Heim,24.0,21.0,"Erxleben, Lars",Tor
+40.81666666666667,Heim,25.0,21.0,"Gronotte, Peter",Tor
+41.833333333333336,Heim,26.0,21.0,"Conrad, Til",Tor
+42.7,Heim,27.0,21.0,"Kobbe, Felix",Tor
+44.21666666666667,Gast,27.0,22.0,"Boithling, Aaron",Tor
+46.35,Heim,28.0,22.0,"Espenschied, Finn",Tor
+46.86666666666667,Gast,28.0,23.0,"Ludwig, Paul Mattes",7m-Tor
+47.46666666666667,Gast,28.0,24.0,"Jäger, Vasco",Tor
+48.233333333333334,Gast,28.0,25.0,"Mertins, Phil",Tor
+48.81666666666667,Heim,29.0,25.0,"Conrad, Til",7m-Tor
+49.11666666666667,Gast,29.0,26.0,"Ludwig, Paul Mattes",Tor
+50.016666666666666,Heim,30.0,26.0,"Bremer, Gerrit",Tor
+53.61666666666667,Heim,31.0,26.0,"Huhnoldt, Hauke",Tor
+54.583333333333336,Heim,32.0,26.0,"Huhnoldt, Hauke",Tor
+54.75,Gast,32.0,27.0,"Boithling, Aaron",Tor
+55.166666666666664,Heim,33.0,27.0,"Huhnoldt, Hauke",7m-Tor
+55.45,Heim,34.0,27.0,"Huhnoldt, Hauke",Tor
+56.3,Gast,34.0,28.0,"Ludwig, Paul Mattes",Tor
+56.583333333333336,Heim,35.0,28.0,"Erxleben, Lars",Tor
+56.983333333333334,Gast,35.0,29.0,"Tebel, Steen",Tor
+57.65,Heim,36.0,29.0,"Espenschied, Finn",Tor
+58.35,Gast,36.0,30.0,"Tebel, Steen",Tor
+58.85,Heim,37.0,30.0,"Huhnoldt, Hauke",Tor
+59.0,Gast,37.0,31.0,"Grönecke, Tim",Tor
+59.233333333333334,Heim,38.0,31.0,"Conrad, Til",Tor

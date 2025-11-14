@@ -1,0 +1,51 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+3.0166666666666666,Heim,1.0,0.0,"Schenk, Jannis",Tor
+3.75,Heim,2.0,0.0,"Lang, Maxim",Tor
+5.25,Heim,3.0,0.0,"Sültmann, Malte",Tor
+8.583333333333334,Gast,3.0,1.0,"Specht, Johannes",Tor
+10.316666666666666,Gast,3.0,2.0,"Specht, Johannes",Tor
+11.5,Gast,3.0,3.0,"Stuhlmann, Felix",Tor
+12.266666666666667,Heim,4.0,3.0,"Cordes, Hinnerk Peter",7m-Tor
+13.2,Gast,4.0,4.0,"Specht, Lukas",7m-Tor
+13.683333333333334,Heim,5.0,4.0,"Sültmann, Malte",Tor
+15.05,Heim,6.0,4.0,"Schenk, Jannis",Tor
+15.383333333333333,Gast,6.0,5.0,"Specht, Johannes",Tor
+16.45,Gast,6.0,6.0,"Drewes, Steffen",Tor
+17.283333333333335,Heim,7.0,6.0,"Hillebrand, Jannes",Tor
+18.1,Gast,7.0,7.0,"Stuhlmann, Felix",Tor
+20.5,Gast,7.0,8.0,"Lauer, Fynn",Tor
+21.766666666666666,Gast,7.0,9.0,"Specht, Lukas",7m-Tor
+22.283333333333335,Heim,8.0,9.0,"Sültmann, Malte",Tor
+25.05,Gast,8.0,10.0,"Lauer, Fynn",Tor
+25.5,Heim,9.0,10.0,"Cordes, Hinnerk Peter",Tor
+25.666666666666668,Gast,9.0,11.0,"Specht, Johannes",Tor
+26.316666666666666,Heim,10.0,11.0,"Cordes, Hinnerk Peter",Tor
+26.566666666666666,Heim,11.0,11.0,"Dankert, Jannes",Tor
+27.016666666666666,Gast,11.0,12.0,"Lauer, Fynn",Tor
+27.85,Heim,12.0,12.0,"Cordes, Hinnerk Peter",7m-Tor
+28.433333333333334,Gast,12.0,13.0,"Specht, Johannes",Tor
+29.116666666666667,Heim,13.0,13.0,"Cordes, Hinnerk Peter",Tor
+29.983333333333334,Gast,13.0,14.0,"Specht, Johannes",Tor
+30.733333333333334,Heim,14.0,14.0,"Cordes, Hinnerk Peter",Tor
+32.13333333333333,Heim,15.0,14.0,"Schenk, Jannis",Tor
+33.61666666666667,Heim,16.0,14.0,"Cordes, Hinnerk Peter",7m-Tor
+34.733333333333334,Gast,16.0,15.0,"Kwiotek, Kevin",Tor
+34.983333333333334,Heim,17.0,15.0,"Hillebrand, Jannes",Tor
+35.85,Gast,17.0,16.0,"Specht, Johannes",Tor
+36.5,Heim,18.0,16.0,"Hillebrand, Jannes",Tor
+37.78333333333333,Heim,19.0,16.0,"Rolfs, Hendrik",Tor
+38.18333333333333,Gast,19.0,17.0,"Specht, Johannes",Tor
+39.983333333333334,Heim,20.0,17.0,"Rolfs, Hendrik",Tor
+40.266666666666666,Gast,20.0,18.0,"Eberhardt, Janis",Tor
+42.86666666666667,Heim,21.0,18.0,"Cordes, Hinnerk Peter",Tor
+44.78333333333333,Heim,22.0,18.0,"Hillebrand, Jannes",Tor
+48.43333333333333,Gast,22.0,19.0,"Specht, Johannes",Tor
+49.666666666666664,Gast,22.0,20.0,"Eberhardt, Janis",Tor
+50.233333333333334,Gast,22.0,21.0,"Lauer, Fynn",Tor
+52.45,Gast,22.0,22.0,"Specht, Johannes",Tor
+52.93333333333333,Heim,23.0,22.0,"Rolfs, Hendrik",Tor
+54.25,Gast,23.0,23.0,"Specht, Johannes",Tor
+54.93333333333333,Heim,24.0,23.0,"Rolfs, Hendrik",Tor
+57.1,Gast,24.0,24.0,"Lauer, Fynn",Tor
+58.53333333333333,Heim,25.0,24.0,"Cordes, Hinnerk Peter",Tor
+59.4,Heim,26.0,24.0,"Sültmann, Malte",Tor

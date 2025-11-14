@@ -1,0 +1,40 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+3.4,Heim,1.0,0.0,"Cordes, Hinnerk Peter",Tor
+3.55,Gast,1.0,1.0,"Schenzel, Carl",Tor
+5.633333333333333,Heim,2.0,1.0,"Cordes, Hinnerk Peter",Tor
+9.0,Gast,2.0,2.0,"Lange, Niklas Alexander",Tor
+11.033333333333333,Heim,3.0,2.0,"Schenk, Jannis",Tor
+11.733333333333333,Gast,3.0,3.0,"Schenzel, Carl",7m-Tor
+13.133333333333333,Heim,4.0,3.0,"Schiller, Marvin",Tor
+13.5,Gast,4.0,4.0,"Schenzel, Carl",Tor
+15.3,Gast,4.0,5.0,"Berndt, Jonas",Tor
+17.083333333333332,Gast,4.0,6.0,"Dekarz, Bendix",Tor
+17.783333333333335,Heim,5.0,6.0,"Dankert, Jannes",Tor
+18.8,Gast,5.0,7.0,"Berg, Steven",Tor
+19.35,Heim,6.0,7.0,"Schiller, Marvin",Tor
+20.583333333333332,Heim,7.0,7.0,"Cordes, Hinnerk Peter",7m-Tor
+22.55,Heim,8.0,7.0,"Schiller, Marvin",Tor
+23.616666666666667,Gast,8.0,8.0,"Lange, Niklas Alexander",Tor
+24.216666666666665,Gast,8.0,9.0,"Köster, Jonathan",Tor
+24.783333333333335,Heim,9.0,9.0,"Dankert, Jannes",Tor
+25.216666666666665,Gast,9.0,10.0,"Schenzel, Carl",Tor
+27.016666666666666,Gast,9.0,11.0,"Schenzel, Carl",7m-Tor
+28.516666666666666,Gast,9.0,12.0,"Berndt, Jonas",Tor
+29.216666666666665,Heim,10.0,12.0,"Dankert, Jannes",Tor
+30.65,Gast,10.0,13.0,"Lange, Niklas Alexander",Tor
+31.116666666666667,Heim,11.0,13.0,"Cordes, Hinnerk Peter",7m-Tor
+31.85,Gast,11.0,14.0,"Dekarz, Bendix",Tor
+35.95,Heim,12.0,14.0,"Cordes, Hinnerk Peter",Tor
+39.31666666666667,Heim,13.0,14.0,"Dankert, Jannes",Tor
+40.96666666666667,Heim,14.0,14.0,"Cordes, Hinnerk Peter",Tor
+42.916666666666664,Heim,15.0,14.0,"Cordes, Hinnerk Peter",Tor
+44.31666666666667,Heim,16.0,14.0,"Dankert, Jannes",Tor
+44.9,Gast,16.0,15.0,"Schenzel, Carl",Tor
+49.333333333333336,Heim,17.0,15.0,"Schmidt, Nick",Tor
+50.13333333333333,Gast,17.0,16.0,"Schenzel, Carl",7m-Tor
+51.38333333333333,Gast,17.0,17.0,"Berndt, Jonas",Tor
+52.583333333333336,Gast,17.0,18.0,"Schenzel, Carl",7m-Tor
+53.266666666666666,Heim,18.0,18.0,"Cordes, Hinnerk Peter",Tor
+53.6,Gast,18.0,19.0,"Matthies, Alexander",Tor
+59.43333333333333,Heim,19.0,19.0,"Cordes, Hinnerk Peter",Tor
+59.95,Gast,19.0,20.0,"Lange, Niklas Alexander",Tor

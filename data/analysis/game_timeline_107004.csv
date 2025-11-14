@@ -1,0 +1,67 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.1666666666666667,Gast,0.0,1.0,"Weiß, Luca-Elias",Tor
+2.033333333333333,Gast,0.0,2.0,"Westphal, Jonas",Tor
+2.4166666666666665,Gast,0.0,3.0,"Weiß, Luca-Elias",7m-Tor
+3.466666666666667,Gast,0.0,4.0,"Kruse, Jan-Luca",Tor
+4.183333333333334,Heim,1.0,4.0,"Ludwig, Paul Mattes",7m-Tor
+5.066666666666666,Heim,2.0,4.0,"Boithling, Aaron",Tor
+7.0,Heim,3.0,4.0,"Mertins, Phil",Tor
+8.2,Gast,3.0,5.0,"Kruse, Jan-Luca",Tor
+8.35,Heim,4.0,5.0,"Ludwig, Paul Mattes",Tor
+8.466666666666667,Gast,4.0,6.0,"Weiß, Luca-Elias Gaspard",Tor
+9.05,Heim,5.0,6.0,"Tebel, Steen",Tor
+9.4,Gast,5.0,7.0,"Weiß, Leon",Tor
+10.833333333333334,Heim,6.0,7.0,"Mertins, Phil",Tor
+11.0,Gast,6.0,8.0,"Kruse, Jan-Luca",Tor
+11.15,Heim,7.0,8.0,"Ludwig, Paul Mattes",Tor
+11.816666666666666,Heim,8.0,8.0,"Mertins, Phil",Tor
+12.0,Gast,8.0,9.0,"Kruse, Jan-Luca Gaspard",Tor
+13.116666666666667,Heim,9.0,9.0,"Ludwig, Paul Mattes",Tor
+14.283333333333333,Heim,10.0,9.0,"Tebel, Steen",Tor
+15.883333333333333,Gast,10.0,10.0,"Zander, Milan",Tor
+16.066666666666666,Heim,11.0,10.0,"Grönecke, Tim",Tor
+16.783333333333335,Heim,12.0,10.0,"Jäger, Vasco",Tor
+18.1,Gast,12.0,11.0,"Zander, Milan",Tor
+18.633333333333333,Heim,13.0,11.0,"Tebel, Steen",Tor
+21.3,Heim,14.0,11.0,"Boithling, Aaron",7m-Tor
+21.85,Gast,14.0,12.0,"Weiß, Luca-Elias",Tor
+23.916666666666668,Gast,14.0,13.0,"Zander, Milan",Tor
+24.3,Heim,15.0,13.0,"Tebel, Steen",Tor
+24.866666666666667,Gast,15.0,14.0,"Weiß, Luca-Elias",Tor
+25.016666666666666,Heim,16.0,14.0,"Boithling, Aaron",Tor
+25.166666666666668,Gast,16.0,15.0,"Weiß, Luca-Elias",Tor
+26.983333333333334,Heim,17.0,15.0,"Ludwig, Paul Mattes",Tor
+27.966666666666665,Heim,18.0,15.0,"Fürch, Maximilian",Tor
+28.366666666666667,Gast,18.0,16.0,"Westphal, Jonas",Tor
+29.066666666666666,Gast,18.0,17.0,"Strauss, Lucas",Tor
+29.166666666666668,Heim,19.0,17.0,"Gimmini, Manuel",Tor
+30.366666666666667,Gast,19.0,18.0,"Weiß, Luca-Elias",Tor
+30.816666666666666,Heim,20.0,18.0,"Boithling, Aaron",7m-Tor
+32.7,Gast,20.0,19.0,"Squillante, Luca",Tor
+33.31666666666667,Heim,21.0,19.0,"Boithling, Aaron",7m-Tor
+34.233333333333334,Gast,21.0,20.0,"Weiß, Luca-Elias",7m-Tor
+34.56666666666667,Gast,21.0,21.0,"Schachtschneider, Nick",Tor
+35.31666666666667,Heim,22.0,21.0,"Boithling, Aaron",Tor
+35.416666666666664,Gast,22.0,22.0,"Weiß, Luca-Elias",Tor
+36.53333333333333,Heim,23.0,22.0,"Tebel, Steen",Tor
+37.36666666666667,Gast,23.0,23.0,"Pelloux-Fontaine,",Tor
+37.85,Heim,24.0,23.0,"Mertins, Phil",Tor
+38.05,Gast,24.0,24.0,"Zander, Milan",Tor
+38.3,Heim,25.0,24.0,"Boithling, Aaron",7m-Tor
+39.483333333333334,Heim,26.0,24.0,"Borchert, Darius",Tor
+40.78333333333333,Gast,26.0,25.0,"Pelloux-Fontaine,",Tor
+44.666666666666664,Gast,26.0,26.0,"Westphal, Jonas",Tor
+45.46666666666667,Gast,26.0,27.0,"Pelloux-Fontaine,",Tor
+48.38333333333333,Heim,27.0,27.0,"Tebel, Steen",Tor
+48.56666666666667,Gast,27.0,28.0,"Strauss, Lucas",Tor
+51.7,Heim,28.0,28.0,"Tebel, Steen",Tor
+51.9,Gast,28.0,29.0,"Rudloff, Kjell",Tor
+52.416666666666664,Heim,29.0,29.0,"Boithling, Aaron",7m-Tor
+53.85,Gast,29.0,30.0,"Hillnhagen, Simon",Tor
+54.53333333333333,Gast,29.0,31.0,"Westphal, Jonas",Tor
+54.8,Heim,30.0,31.0,"Tebel, Steen",Tor
+55.78333333333333,Gast,30.0,32.0,"Zander, Milan",Tor
+56.4,Gast,30.0,33.0,"Hillnhagen, Simon",Tor
+57.25,Gast,30.0,34.0,"Rudloff, Kjell",Tor
+57.483333333333334,Heim,31.0,34.0,"Boithling, Aaron",7m-Tor
+58.65,Gast,31.0,35.0,"Weiß, Luca-Elias",Tor

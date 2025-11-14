@@ -1,0 +1,42 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+10.466666666666667,Gast,0.0,1.0,"Lange, Jonas",Tor
+12.683333333333334,Heim,1.0,1.0,"Holm, Moritz-Maximilian",Tor
+14.466666666666667,Heim,2.0,1.0,"Holm, Moritz-Maximilian",Tor
+15.75,Gast,2.0,2.0,"Lange, Jonas",Tor
+17.483333333333334,Heim,3.0,2.0,"Fuchs, Marcel",Tor
+18.166666666666668,Gast,3.0,3.0,"Schmidt, Marcel",Tor
+19.816666666666666,Heim,4.0,3.0,"Fasterling, Henri",Tor
+20.533333333333335,Heim,5.0,3.0,"Böhme, Jan",Tor
+21.883333333333333,Heim,6.0,3.0,"Fasterling, Henri",Tor
+22.733333333333334,Gast,6.0,4.0,"Schmidt, Marcel",Tor
+23.45,Heim,7.0,4.0,"Ott, Andreas",7m-Tor
+24.883333333333333,Heim,8.0,4.0,"Ott, Elias",Tor
+25.633333333333333,Gast,8.0,5.0,"Witzke, Christopher",Tor
+25.816666666666666,Heim,9.0,5.0,"Keßler, Jan Niclas",Tor
+27.35,Gast,9.0,6.0,"Lange, Jonas",Tor
+29.416666666666668,Heim,10.0,6.0,"Ott, Andreas",Tor
+32.63333333333333,Heim,11.0,6.0,"Keßler, Jan Niclas",Tor
+35.56666666666667,Heim,12.0,6.0,"Ott, Andreas",7m-Tor
+39.55,Heim,13.0,6.0,"Wendisch, Justin",Tor
+40.55,Heim,14.0,6.0,"Wendisch, Justin",Tor
+42.46666666666667,Gast,14.0,7.0,"Lange, Erik",Tor
+44.516666666666666,Heim,15.0,7.0,"Fasterling, Henri",Tor
+44.983333333333334,Gast,15.0,8.0,"Mill, Julius",Tor
+45.333333333333336,Heim,16.0,8.0,"Fasterling, Henri",Tor
+46.03333333333333,Gast,16.0,9.0,"Lange, Jonas",Tor
+46.766666666666666,Heim,17.0,9.0,"Ott, Elias",7m-Tor
+49.18333333333333,Gast,17.0,10.0,"Kristandt, André",Tor
+49.583333333333336,Heim,18.0,10.0,"Fuchs, Marcel",Tor
+49.93333333333333,Gast,18.0,11.0,"Lange, Erik",Tor
+50.833333333333336,Heim,19.0,11.0,"Fuchs, Marcel",Tor
+51.666666666666664,Gast,19.0,12.0,"Lange, Erik",Tor
+51.81666666666667,Heim,20.0,12.0,"Ott, Elias",Tor
+53.35,Gast,20.0,13.0,"Mill, Julius",Tor
+54.71666666666667,Heim,21.0,13.0,"Ott, Elias",Tor
+55.25,Heim,22.0,13.0,"Todorski, Til",Tor
+55.86666666666667,Gast,22.0,14.0,"Lange, Erik",Tor
+56.56666666666667,Heim,23.0,14.0,"Ott, Elias",7m-Tor
+57.13333333333333,Gast,23.0,15.0,"Lange, Erik",Tor
+57.5,Gast,23.0,16.0,"Lange, Erik",Tor
+58.7,Gast,23.0,17.0,"Lange, Erik",Tor
+59.56666666666667,Gast,23.0,18.0,"Mill, Julius",Tor

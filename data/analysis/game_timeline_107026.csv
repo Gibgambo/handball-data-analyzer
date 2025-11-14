@@ -1,0 +1,66 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+0.8833333333333333,Gast,0.0,1.0,"Fuchs, Marcel",Tor
+1.9833333333333334,Heim,1.0,1.0,"Tebel, Steen",Tor
+3.3166666666666664,Gast,1.0,2.0,"Holm, Moritz-Maximilian",7m-Tor
+3.716666666666667,Heim,2.0,2.0,"Mertins, Phil",Tor
+4.75,Gast,2.0,3.0,"Fuchs, Marcel",Tor
+4.916666666666667,Heim,3.0,3.0,"Ludwig, Paul Mattes",Tor
+6.816666666666666,Gast,3.0,4.0,"Holm, Moritz-Maximilian",Tor
+8.3,Heim,4.0,4.0,"Ludwig, Paul Mattes",Tor
+8.9,Heim,5.0,4.0,"Jäger, Vasco",Tor
+9.7,Gast,5.0,5.0,"Holm, Moritz-Maximilian",Tor
+10.183333333333334,Heim,6.0,5.0,"Ludwig, Paul Mattes",Tor
+10.883333333333333,Heim,7.0,5.0,"Ludwig, Finn-Lennart",Tor
+11.4,Gast,7.0,6.0,"Fuchs, Marcel",Tor
+12.583333333333334,Heim,8.0,6.0,"Mertins, Phil",Tor
+13.083333333333334,Heim,9.0,6.0,"Mertins, Phil",Tor
+15.466666666666667,Gast,9.0,7.0,"Holm, Moritz-Maximilian",Tor
+15.683333333333334,Heim,10.0,7.0,"Jäger, Vasco",Tor
+16.4,Gast,10.0,8.0,"Holm, Moritz-Maximilian",Tor
+18.583333333333332,Heim,11.0,8.0,"Ludwig, Paul Mattes",Tor
+19.7,Heim,12.0,8.0,"Jäger, Vasco",Tor
+20.266666666666666,Gast,12.0,9.0,"Holm, Moritz-Maximilian",Tor
+20.933333333333334,Heim,13.0,9.0,"Tebel, Steen",Tor
+22.7,Gast,13.0,10.0,"Solaker, Noah",Tor
+23.433333333333334,Gast,13.0,11.0,"Solaker, Noah",Tor
+23.583333333333332,Heim,14.0,11.0,"Mertins, Phil",Tor
+24.483333333333334,Heim,15.0,11.0,"Lechner, Jona Bennet",Tor
+25.266666666666666,Gast,15.0,12.0,"Keßler, Jan Niclas",Tor
+25.8,Heim,16.0,12.0,"Tebel, Steen",Tor
+26.533333333333335,Gast,16.0,13.0,"Solaker, Noah",Tor
+27.666666666666668,Heim,17.0,13.0,"Ludwig, Paul Mattes",7m-Tor
+28.433333333333334,Gast,17.0,14.0,"Ott, Andreas",7m-Tor
+29.35,Gast,17.0,15.0,"Fuchs, Marcel",Tor
+31.616666666666667,Gast,17.0,16.0,"Holm, Moritz-Maximilian",7m-Tor
+32.766666666666666,Heim,18.0,16.0,"Lechner, Jona Bennet",Tor
+34.733333333333334,Gast,18.0,17.0,"Holm, Moritz-Maximilian",Tor
+34.95,Heim,19.0,17.0,"Lechner, Jona Bennet",Tor
+35.85,Gast,19.0,18.0,"Holm, Moritz-Maximilian",7m-Tor
+36.416666666666664,Heim,20.0,18.0,"Borchert, Darius",Tor
+38.15,Gast,20.0,19.0,"Holm, Moritz-Maximilian",Tor
+39.166666666666664,Gast,20.0,20.0,"Fasterling, Henri",Tor
+41.45,Heim,21.0,20.0,"Ludwig, Paul Mattes",Tor
+41.766666666666666,Gast,21.0,21.0,"Fuchs, Marcel",Tor
+42.016666666666666,Heim,22.0,21.0,"Borchert, Darius",Tor
+42.416666666666664,Gast,22.0,22.0,"Solaker, Noah",Tor
+43.05,Heim,23.0,22.0,"Mertins, Phil",Tor
+43.6,Gast,23.0,23.0,"Laucke, Paul",Tor
+43.86666666666667,Gast,23.0,24.0,"Fuchs, Marcel",Tor
+44.46666666666667,Heim,24.0,24.0,"Ludwig, Finn-Lennart",Tor
+45.2,Heim,25.0,24.0,"Ludwig, Paul Mattes",Tor
+46.4,Heim,26.0,24.0,"Jäger, Vasco",Tor
+46.8,Heim,27.0,24.0,"Ludwig, Finn-Lennart",Tor
+48.516666666666666,Gast,27.0,25.0,"Holm, Moritz-Maximilian",Tor
+49.666666666666664,Heim,28.0,25.0,"Ludwig, Paul Mattes",7m-Tor
+50.11666666666667,Heim,29.0,25.0,"Jäger, Vasco",Tor
+51.56666666666667,Heim,30.0,25.0,"Ludwig, Finn-Lennart",Tor
+52.983333333333334,Heim,31.0,25.0,"Jäger, Vasco",Tor
+53.55,Gast,31.0,26.0,"Holm, Moritz-Maximilian",Tor
+54.05,Gast,31.0,27.0,"Holm, Moritz-Maximilian",7m-Tor
+55.0,Heim,32.0,27.0,"Ludwig, Paul Mattes",7m-Tor
+55.31666666666667,Gast,32.0,28.0,"Holm, Moritz-Maximilian",Tor
+55.85,Gast,32.0,29.0,"Solaker, Noah",Tor
+57.56666666666667,Heim,33.0,29.0,"Tebel, Steen",Tor
+57.75,Gast,33.0,30.0,"Ott, Elias",Tor
+58.233333333333334,Heim,34.0,30.0,"Grönecke, Tim",Tor
+59.21666666666667,Heim,35.0,30.0,"Tebel, Steen",Tor

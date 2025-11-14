@@ -1,0 +1,45 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+0.7166666666666667,Gast,0.0,1.0,"Lang, Maxim",Tor
+1.7,Gast,0.0,2.0,"Lang, Maxim",Tor
+5.383333333333334,Heim,1.0,2.0,"Weiß, Leon",Tor
+5.983333333333333,Heim,2.0,2.0,"Weiß, Leon",Tor
+6.766666666666667,Gast,2.0,3.0,"Wegner, Marvin",Tor
+9.2,Heim,3.0,3.0,"Kruse, Jan-Luca",Tor
+9.65,Gast,3.0,4.0,"Cordes, Hinnerk Peter",Tor
+9.816666666666666,Heim,4.0,4.0,"Kruse, Jan-Luca",Tor
+11.933333333333334,Heim,5.0,4.0,"Schnackenberg, Jurek",Tor
+13.116666666666667,Heim,6.0,4.0,"Weiß, Leon",Tor
+13.483333333333333,Heim,7.0,4.0,"Weiß, Luca-Elias",Tor
+15.666666666666666,Heim,8.0,4.0,"Schnackenberg, Jurek",Tor
+16.183333333333334,Gast,8.0,5.0,"Dankert, Jannes",Tor
+17.233333333333334,Gast,8.0,6.0,"Cordes, Hinnerk Peter",Tor
+19.033333333333335,Gast,8.0,7.0,"Lang, Maxim",Tor
+19.8,Heim,9.0,7.0,"Weiß, Luca-Elias",7m-Tor
+22.433333333333334,Gast,9.0,8.0,"Dankert, Jannes",Tor
+23.833333333333332,Gast,9.0,9.0,"Büschen, Louis",Tor
+23.95,Heim,10.0,9.0,"Weiß, Leon",Tor
+25.016666666666666,Heim,11.0,9.0,"Dombrowski, Paul",Tor
+26.366666666666667,Gast,11.0,10.0,"Cordes, Hinnerk Peter",7m-Tor
+27.416666666666668,Heim,12.0,10.0,"Strauss, Lucas",Tor
+27.95,Gast,12.0,11.0,"Lang, Maxim",Tor
+28.366666666666667,Heim,13.0,11.0,"Weiß, Luca-Elias",Tor
+28.883333333333333,Heim,14.0,11.0,"Weiß, Luca-Elias",Tor
+29.4,Gast,14.0,12.0,"Rolfs, Hendrik",Tor
+29.983333333333334,Heim,15.0,12.0,"Strauss, Lucas",Tor
+30.083333333333332,Heim,16.0,12.0,"Squillante, Luca",Tor
+33.53333333333333,Gast,17.0,13.0,"Schenk, Jannis",Tor
+36.45,Heim,19.0,13.0,"Rudloff, Kjell",Tor
+37.016666666666666,Gast,19.0,14.0,"Cordes, Hinnerk Peter",7m-Tor
+38.2,Heim,20.0,14.0,"Squillante, Luca",Tor
+38.65,Gast,20.0,15.0,"Könemann, Jost",Tor
+40.5,Gast,20.0,16.0,"Cordes, Hinnerk Peter",7m-Tor
+41.4,Gast,20.0,17.0,"Könemann, Jost",Tor
+45.95,Gast,20.0,18.0,"Lührs, Philip",Tor
+46.78333333333333,Heim,21.0,18.0,"Strauss, Lucas",Tor
+47.9,Heim,22.0,18.0,"Hillnhagen, Simon",Tor
+49.71666666666667,Gast,22.0,19.0,"Schenk, Jannis",Tor
+50.583333333333336,Heim,23.0,19.0,"Dombrowski, Paul",Tor
+53.05,Heim,24.0,19.0,"Dombrowski, Paul",Tor
+56.03333333333333,Heim,25.0,19.0,"Weiß, Luca-Elias",7m-Tor
+59.28333333333333,Gast,25.0,20.0,"Cordes, Hinnerk Peter",Tor
+60.0,Gast,25.0,21.0,"Dankert, Jannes",Tor

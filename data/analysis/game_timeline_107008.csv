@@ -1,0 +1,45 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+2.8666666666666667,Gast,0.0,1.0,"Solaker, Noah",Tor
+3.3666666666666667,Heim,1.0,1.0,"Specht, Lukas",7m-Tor
+4.35,Gast,1.0,2.0,"Solaker, Noah",Tor
+5.733333333333333,Heim,2.0,2.0,"Hohls, Friedrich",Tor
+9.183333333333334,Heim,3.0,2.0,"Lauer, Fynn",Tor
+11.016666666666667,Gast,3.0,3.0,"Solaker, Noah",Tor
+11.45,Heim,4.0,3.0,"Hohls, Friedrich",Tor
+12.183333333333334,Gast,4.0,4.0,"Holm, Moritz-Maximilian",7m-Tor
+13.483333333333333,Heim,5.0,4.0,"Drewes, Steffen",Tor
+13.833333333333334,Gast,5.0,5.0,"Holm, Moritz-Maximilian",Tor
+14.683333333333334,Heim,6.0,5.0,"Specht, Johannes",Tor
+16.116666666666667,Heim,7.0,5.0,"Specht, Johannes",Tor
+16.883333333333333,Gast,7.0,6.0,"Fasterling, Henri",Tor
+17.683333333333334,Heim,8.0,6.0,"Hohls, Friedrich",Tor
+18.45,Gast,8.0,7.0,"Keßler, Jan Niclas",Tor
+19.116666666666667,Heim,9.0,7.0,"Specht, Johannes",Tor
+20.516666666666666,Heim,10.0,7.0,"Lauer, Fynn",Tor
+21.25,Gast,10.0,8.0,"Holm, Moritz-Maximilian",7m-Tor
+21.7,Gast,10.0,9.0,"Holm, Moritz-Maximilian",Tor
+21.966666666666665,Heim,11.0,9.0,"Kwiotek, Kevin",Tor
+22.983333333333334,Gast,11.0,10.0,"Solaker, Noah",Tor
+25.316666666666666,Heim,12.0,10.0,"Lauer, Fynn",Tor
+29.283333333333335,Heim,13.0,10.0,"Klautke, Enno",Tor
+29.95,Gast,13.0,11.0,"Kuprat, Maximilian",Tor
+31.433333333333334,Gast,13.0,12.0,"Fasterling, Henri",Tor
+33.06666666666667,Gast,13.0,13.0,"Laucke, Paul",Tor
+34.13333333333333,Gast,13.0,14.0,"Solaker, Noah",Tor
+35.016666666666666,Heim,14.0,14.0,"Specht, Lukas",7m-Tor
+35.666666666666664,Heim,15.0,14.0,"Specht, Johannes",Tor
+36.71666666666667,Gast,15.0,15.0,"Solaker, Noah",Tor
+36.71666666666667,Heim,16.0,15.0,"Lauer, Fynn",Tor
+36.71666666666667,Heim,17.0,15.0,"Sommerburg, Dominic",Tor
+36.71666666666667,Gast,17.0,16.0,"Keßler, Jan Niclas",Tor
+39.25,Gast,17.0,17.0,"Fasterling, Henri",Tor
+39.95,Heim,18.0,17.0,"Klautke, Enno",Tor
+40.4,Gast,18.0,18.0,"Kuprat, Maximilian",Tor
+41.36666666666667,Gast,18.0,19.0,"Fasterling, Henri",Tor
+41.86666666666667,Heim,19.0,19.0,"Klautke, Enno",Tor
+42.45,Gast,19.0,20.0,"Kuprat, Maximilian",Tor
+46.11666666666667,Gast,19.0,21.0,"Kuprat, Maximilian",Tor
+47.2,Heim,20.0,21.0,"Specht, Johannes",Tor
+55.833333333333336,Heim,21.0,21.0,"Specht, Johannes",Tor
+58.43333333333333,Heim,22.0,21.0,"Kwiotek, Kevin",Tor
+58.9,Gast,22.0,22.0,"Holm, Moritz-Maximilian",Tor

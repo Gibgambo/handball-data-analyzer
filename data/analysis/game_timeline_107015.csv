@@ -1,0 +1,60 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+3.4166666666666665,Heim,1.0,0.0,"Cordes, Hinnerk Peter",Tor
+4.616666666666667,Gast,1.0,1.0,"Laube, Mirko",Tor
+5.533333333333333,Heim,2.0,1.0,"Cordes, Hinnerk Peter",7m-Tor
+7.25,Heim,3.0,1.0,"Cordes, Hinnerk Peter",7m-Tor
+7.766666666666667,Heim,4.0,1.0,"Schenk, Jannis",Tor
+7.966666666666667,Gast,4.0,2.0,"Thomas, Kai-Philipp",Tor
+9.1,Heim,5.0,2.0,"Lang, Maxim",Tor
+10.933333333333334,Heim,6.0,2.0,"Wegner, Marvin",Tor
+12.266666666666667,Gast,6.0,3.0,"Rutz, Malte",Tor
+13.25,Heim,7.0,3.0,"Cordes, Hinnerk Peter",7m-Tor
+15.516666666666667,Gast,7.0,4.0,"Laube, Mirko",Tor
+17.983333333333334,Heim,8.0,4.0,"Schiller, Marvin",Tor
+18.983333333333334,Heim,9.0,4.0,"Schiller, Marvin",Tor
+19.583333333333332,Gast,9.0,5.0,"Erxleben, Lars",7m-Tor
+19.966666666666665,Heim,10.0,5.0,"Cordes, Hinnerk Peter",Tor
+20.633333333333333,Gast,10.0,6.0,"Thomas, Kai-Philipp",Tor
+21.5,Heim,12.0,6.0,"Schenk, Jannis",Tor
+21.5,Heim,11.0,6.0,"Cordes, Hinnerk Peter",7m-Tor
+23.3,Gast,12.0,7.0,"Erxleben, Lars",Tor
+23.766666666666666,Heim,13.0,7.0,"Dankert, Jannes",Tor
+25.066666666666666,Gast,13.0,8.0,"Kolditz, Max-Richard",Tor
+27.0,Heim,14.0,8.0,"Cordes, Hinnerk Peter",7m-Tor
+27.45,Gast,14.0,9.0,"Gronotte, Peter",Tor
+27.95,Heim,15.0,9.0,"Schiller, Marvin",Tor
+28.15,Gast,15.0,10.0,"Gronotte, Peter",Tor
+30.616666666666667,Heim,16.0,10.0,"Schenk, Jannis",Tor
+31.016666666666666,Gast,16.0,11.0,"Kowollik, Lennart",Tor
+31.65,Heim,17.0,11.0,"Hillebrand, Jannes",Tor
+33.05,Gast,17.0,12.0,"Gronotte, Peter",Tor
+33.56666666666667,Gast,17.0,13.0,"Gronotte, Peter",Tor
+34.28333333333333,Gast,17.0,14.0,"Gronotte, Peter",Tor
+34.85,Gast,17.0,15.0,"Kowollik, Lennart",Tor
+35.31666666666667,Heim,18.0,15.0,"Lang, Maxim",Tor
+37.43333333333333,Heim,19.0,15.0,"Dankert, Jannes",Tor
+37.666666666666664,Gast,19.0,16.0,"Kowollik, Lennart",Tor
+37.916666666666664,Gast,19.0,17.0,"Böttger, Thilo",Tor
+40.75,Heim,20.0,17.0,"Dankert, Jannes",Tor
+41.583333333333336,Heim,21.0,17.0,"Cordes, Hinnerk Peter",Tor
+42.266666666666666,Heim,22.0,17.0,"Dankert, Jannes",Tor
+42.5,Gast,22.0,18.0,"Conrad, Til",Tor
+43.36666666666667,Heim,23.0,18.0,"Cordes, Hinnerk Peter",Tor
+44.45,Heim,24.0,18.0,"Cordes, Hinnerk Peter",7m-Tor
+44.96666666666667,Gast,24.0,19.0,"Huhnoldt, Hauke",Tor
+47.1,Gast,24.0,20.0,"Gronotte, Peter",Tor
+47.65,Heim,25.0,20.0,"Schenk, Jannis",Tor
+50.5,Heim,26.0,20.0,"Hillebrand, Jannes",Tor
+51.2,Gast,26.0,21.0,"Gronotte, Peter",Tor
+51.93333333333333,Gast,26.0,22.0,"Erxleben, Lars",7m-Tor
+53.28333333333333,Gast,26.0,23.0,"Gronotte, Peter",Tor
+53.81666666666667,Gast,26.0,24.0,"Rutz, Malte",Tor
+55.416666666666664,Heim,27.0,24.0,"Könemann, Jost",Tor
+56.56666666666667,Heim,28.0,24.0,"Dankert, Jannes",Tor
+57.13333333333333,Heim,29.0,24.0,"Cordes, Hinnerk Peter",7m-Tor
+57.63333333333333,Gast,29.0,25.0,"Rutz, Malte",Tor
+57.86666666666667,Heim,30.0,25.0,"Könemann, Jost",Tor
+58.85,Gast,30.0,26.0,"Huhnoldt, Hauke",Tor
+59.18333333333333,Heim,31.0,26.0,"Könemann, Jost",Tor
+59.4,Gast,31.0,27.0,"Gronotte, Peter",Tor
+59.75,Gast,31.0,28.0,"Conrad, Til",Tor

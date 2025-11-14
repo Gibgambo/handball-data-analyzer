@@ -1,0 +1,67 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.9,Gast,0.0,1.0,"Rauls, Niklas",Tor
+2.066666666666667,Heim,1.0,1.0,"Pelloux-Fontaine,",Tor
+2.65,Gast,1.0,2.0,"Wietfeld, Jonas",Tor
+3.2333333333333334,Heim,2.0,2.0,"Weiß, Luca-Elias",Tor
+5.233333333333333,Heim,3.0,2.0,"Weiß, Luca-Elias",7m-Tor
+6.25,Heim,4.0,2.0,"Haisel, Gunnar",Tor
+7.433333333333334,Heim,5.0,2.0,"Haisel, Gunnar",Tor
+8.266666666666667,Gast,5.0,3.0,"Wietfeld, Jonas",7m-Tor
+8.95,Heim,6.0,3.0,"Haisel, Gunnar",Tor
+9.733333333333333,Gast,6.0,4.0,"Funk, Adrian",Tor
+10.616666666666667,Gast,6.0,5.0,"Rauls, Lennart",Tor
+11.166666666666666,Heim,7.0,5.0,"Weiß, Luca-Elias",Tor
+11.833333333333334,Heim,8.0,5.0,"Pelloux-Fontaine,",Tor
+12.3,Gast,8.0,6.0,"Borsum, Phil",Tor
+12.55,Heim,9.0,6.0,"Rudloff, Kjell",Tor
+13.383333333333333,Gast,9.0,7.0,"Benefeldt, Niklas",Tor
+14.166666666666666,Gast,9.0,8.0,"Wietfeld, Jonas",7m-Tor
+14.666666666666666,Heim,10.0,8.0,"Rudloff, Kjell",Tor
+15.216666666666667,Gast,10.0,9.0,"Funk, Adrian",Tor
+15.633333333333333,Heim,11.0,9.0,"Weiß, Luca-Elias",Tor
+16.466666666666665,Heim,12.0,9.0,"Westphal, Jonas",Tor
+16.933333333333334,Heim,13.0,9.0,"Weiß, Luca-Elias",7m-Tor
+17.45,Gast,13.0,10.0,"Krause, Hannes",Tor
+18.1,Heim,14.0,10.0,"Strauss, Lucas",Tor
+18.633333333333333,Gast,14.0,11.0,"Rauls, Niklas",Tor
+21.4,Gast,14.0,12.0,"Wietfeld, Jonas",7m-Tor
+21.966666666666665,Heim,15.0,12.0,"Weiß, Luca-Elias",Tor
+23.083333333333332,Gast,15.0,13.0,"Bendrien, Paul Gaspard",Tor
+24.483333333333334,Heim,16.0,13.0,"Weiß, Luca-Elias",Tor
+25.333333333333332,Gast,16.0,14.0,"Funk, Adrian",Tor
+25.5,Heim,17.0,14.0,"Haisel, Gunnar",Tor
+26.2,Heim,18.0,14.0,"Squillante, Luca",Tor
+27.066666666666666,Heim,19.0,14.0,"Haisel, Gunnar",Tor
+27.683333333333334,Gast,19.0,15.0,"Wietfeld, Jonas",Tor
+28.483333333333334,Heim,20.0,15.0,"Weiß, Luca-Elias",Tor
+29.5,Heim,21.0,15.0,"Weiß, Leon",Tor
+29.966666666666665,Heim,22.0,15.0,"Schnackenberg, Jurek",Tor
+30.966666666666665,Gast,22.0,16.0,"Rauls, Lennart",Tor
+31.616666666666667,Gast,22.0,17.0,"Wietfeld, Jonas",7m-Tor
+32.71666666666667,Heim,23.0,17.0,"Weiß, Luca-Elias",7m-Tor
+33.85,Heim,24.0,18.0,"Stein, Alexander",Tor
+34.3,Heim,25.0,18.0,"Strauss, Lucas",Tor
+35.166666666666664,Heim,26.0,18.0,"Wenk, Mathies",Tor
+35.35,Gast,26.0,19.0,"Funk, Adrian",Tor
+36.233333333333334,Heim,27.0,19.0,"Squillante, Luca",Tor
+37.8,Gast,27.0,20.0,"Rauls, Lennart",Tor
+38.4,Heim,28.0,20.0,"Weiß, Leon",Tor
+40.166666666666664,Heim,29.0,20.0,"Weiß, Luca-Elias",7m-Tor
+40.9,Gast,29.0,21.0,"Zawade, Ole",Tor
+41.43333333333333,Heim,30.0,21.0,"Rudloff, Kjell",Tor
+44.3,Gast,30.0,22.0,"Rauls, Lennart",Tor
+45.28333333333333,Heim,31.0,22.0,"Squillante, Luca",Tor
+45.666666666666664,Heim,32.0,22.0,"Weiß, Leon",7m-Tor
+47.68333333333333,Gast,32.0,23.0,"Rauls, Lennart",Tor
+48.13333333333333,Heim,33.0,23.0,"Weiß, Leon",Tor
+49.86666666666667,Gast,33.0,24.0,"Borsum, Phil",7m-Tor
+50.833333333333336,Heim,34.0,24.0,"Wenk, Mathies",Tor
+51.333333333333336,Gast,34.0,25.0,"Benefeldt, Niklas",Tor
+52.25,Heim,35.0,25.0,"Weiß, Luca-Elias",7m-Tor
+52.86666666666667,Gast,35.0,26.0,"Benefeldt, Niklas",Tor
+54.63333333333333,Heim,36.0,26.0,"Haisel, Gunnar",Tor
+55.5,Heim,37.0,26.0,"Hillnhagen, Simon",Tor
+58.11666666666667,Heim,38.0,26.0,"Westphal, Jonas",Tor
+58.56666666666667,Heim,39.0,26.0,"Squillante, Luca",Tor
+59.21666666666667,Gast,39.0,27.0,"Borsum, Phil",7m-Tor
+59.916666666666664,Heim,40.0,27.0,"Pelloux-Fontaine,",Tor

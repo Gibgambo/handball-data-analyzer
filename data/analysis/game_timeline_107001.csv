@@ -1,0 +1,64 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.4333333333333333,Gast,0.0,1.0,"Huhnoldt, Hauke",7m-Tor
+3.0833333333333335,Heim,1.0,1.0,"Zeitke, Tim",Tor
+3.2666666666666666,Gast,1.0,2.0,"Laube, Mirko",Tor
+4.033333333333333,Heim,2.0,2.0,"Menssen, Keno",Tor
+5.283333333333333,Gast,2.0,3.0,"Huhnoldt, Hauke",Tor
+7.55,Gast,2.0,4.0,"Thomas, Kai-Philipp Kay",Tor
+9.416666666666666,Heim,3.0,4.0,"Mill, Julius",Tor
+10.616666666666667,Gast,3.0,5.0,"Laube, Mirko",Tor
+11.333333333333334,Heim,4.0,5.0,"Luettmann, Kilian",Tor
+11.65,Heim,5.0,5.0,"Luettmann, Kilian",Tor
+12.516666666666667,Gast,5.0,6.0,"Rutz, Malte",Tor
+13.333333333333334,Gast,5.0,7.0,"Kowollik, Lennart",Tor
+14.366666666666667,Heim,6.0,7.0,"Georgiev, Zwetan",Tor
+16.283333333333335,Heim,7.0,7.0,"Kaiser, Jan",Tor
+16.866666666666667,Gast,7.0,8.0,"Kowollik, Lennart",Tor
+18.0,Heim,8.0,8.0,"Luettmann, Kilian",Tor
+20.883333333333333,Gast,8.0,9.0,"Mesenbring, Oke Bahne",Tor
+21.633333333333333,Heim,9.0,9.0,"Witzke, Christopher",Tor
+22.133333333333333,Gast,9.0,10.0,"Kowollik, Lennart",Tor
+22.9,Heim,10.0,10.0,"Luettmann, Kilian",7m-Tor
+23.283333333333335,Gast,10.0,11.0,"Gronotte, Peter",Tor
+23.733333333333334,Heim,11.0,11.0,"Mill, Julius",Tor
+23.883333333333333,Gast,11.0,12.0,"Kowollik, Lennart",Tor
+24.716666666666665,Gast,11.0,13.0,"Huhnoldt, Hauke",Tor
+25.25,Gast,11.0,14.0,"Kobbe, Felix",Tor
+25.533333333333335,Heim,12.0,14.0,"Mill, Julius",Tor
+25.866666666666667,Gast,12.0,15.0,"Mesenbring, Oke Bahne",Tor
+26.883333333333333,Gast,12.0,16.0,"Gronotte, Peter",Tor
+27.15,Heim,13.0,16.0,"Rosse, Matti",Tor
+27.566666666666666,Heim,14.0,16.0,"Mill, Julius",Tor
+27.983333333333334,Heim,15.0,16.0,"Mill, Julius",Tor
+28.833333333333332,Gast,15.0,17.0,"Laube, Mirko",Tor
+29.883333333333333,Gast,15.0,18.0,"Laube, Mirko",Tor
+31.5,Heim,16.0,18.0,"Menssen, Keno",Tor
+32.4,Heim,17.0,18.0,"Luettmann, Kilian",Tor
+33.0,Gast,17.0,19.0,"Bremer, Gerrit",Tor
+34.4,Heim,18.0,19.0,"Luettmann, Kilian",Tor
+35.05,Gast,18.0,20.0,"Gronotte, Peter",Tor
+35.38333333333333,Heim,19.0,20.0,"Luettmann, Kilian",Tor
+36.166666666666664,Gast,19.0,21.0,"Bremer, Gerrit",Tor
+36.81666666666667,Gast,19.0,22.0,"Gronotte, Peter",Tor
+37.86666666666667,Gast,19.0,23.0,"Mesenbring, Oke Bahne",Tor
+38.65,Gast,19.0,24.0,"Türk, Jurek",Tor
+39.4,Gast,19.0,25.0,"Kobbe, Felix",Tor
+40.0,Heim,20.0,25.0,"Menssen, Keno",Tor
+40.71666666666667,Gast,20.0,26.0,"Conrad, Til",Tor
+41.03333333333333,Heim,21.0,26.0,"Zeitke, Tim",Tor
+43.36666666666667,Heim,22.0,26.0,"Luettmann, Kilian",Tor
+44.4,Gast,22.0,27.0,"Conrad, Til",Tor
+45.766666666666666,Gast,22.0,28.0,"Thomas, Kai-Philipp",Tor
+46.3,Heim,23.0,28.0,"Rosse, Matti",Tor
+47.333333333333336,Heim,24.0,28.0,"Luettmann, Kilian",Tor
+48.93333333333333,Gast,24.0,30.0,"Huhnoldt, Hauke",Tor
+50.5,Heim,26.0,30.0,"Rosse, Matti",Tor
+51.45,Gast,26.0,31.0,"Conrad, Til",7m-Tor
+52.88333333333333,Gast,26.0,32.0,"Kowollik, Lennart",Tor
+53.81666666666667,Heim,27.0,32.0,"Rosse, Matti",Tor
+54.18333333333333,Gast,27.0,33.0,"Huhnoldt, Hauke",Tor
+55.88333333333333,Gast,27.0,34.0,"Türk, Jurek",Tor
+56.53333333333333,Heim,28.0,34.0,"Mill, Julius",Tor
+56.9,Gast,28.0,35.0,"Thomas, Kai-Philipp",Tor
+58.016666666666666,Gast,28.0,36.0,"Gronotte, Peter",Tor
+58.75,Gast,28.0,37.0,"Thomas, Kai-Philipp",Tor

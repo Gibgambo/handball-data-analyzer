@@ -1,0 +1,59 @@
+﻿minute,team,stand_heim,stand_gast,spieler,ereignis
+1.8333333333333335,Gast,0.0,1.0,"Waschke, Marcel",Tor
+3.7333333333333334,Gast,0.0,2.0,"Reuter, Sören",Tor
+5.683333333333334,Gast,0.0,3.0,"Waschke, Marcel",Tor
+6.433333333333334,Heim,1.0,3.0,"Köster, Jonathan",Tor
+7.133333333333334,Gast,1.0,4.0,"Strub, Georg",Tor
+7.8,Heim,2.0,4.0,"Dekarz, Bendix",Tor
+7.966666666666667,Gast,2.0,5.0,"Waschke, Marcel",7m-Tor
+11.116666666666667,Gast,2.0,6.0,"Krusch, Len",Tor
+11.65,Gast,2.0,7.0,"Waschke, Marcel",Tor
+12.55,Gast,2.0,8.0,"Kamradt, Tim",Tor
+13.2,Heim,3.0,8.0,"Lange, Niklas Alexander",Tor
+14.116666666666667,Gast,3.0,9.0,"Büüs, Gerrit",Tor
+14.666666666666666,Heim,4.0,9.0,"Matthies, Marcel",Tor
+15.966666666666667,Gast,4.0,10.0,"Waschke, Marcel",7m-Tor
+16.366666666666667,Heim,5.0,10.0,"Lange, Niklas Alexander",Tor
+16.883333333333333,Gast,5.0,11.0,"Hansen, Arne",Tor
+17.116666666666667,Heim,6.0,11.0,"Ahrens, Jaron",Tor
+17.683333333333334,Gast,6.0,12.0,"Waschke, Marcel",Tor
+18.7,Heim,7.0,12.0,"Ahrens, Jaron",Tor
+19.766666666666666,Gast,7.0,13.0,"Winkler, Kevin",Tor
+21.133333333333333,Heim,8.0,13.0,"Dekarz, Bendix",Tor
+24.683333333333334,Heim,9.0,13.0,"Dekarz, Steffen",Tor
+25.316666666666666,Gast,9.0,14.0,"Zellmann, Niklas",Tor
+25.75,Heim,10.0,14.0,"Schenzel, Carl",Tor
+26.2,Gast,10.0,15.0,"Waschke, Marcel",Tor
+27.866666666666667,Gast,10.0,16.0,"Waschke, Marcel",Tor
+28.533333333333335,Heim,11.0,16.0,"Eilrich, Phillip",Tor
+29.933333333333334,Gast,11.0,17.0,"Alcape Meyer, Afonso",Tor
+30.5,Gast,11.0,18.0,"Zellmann, Niklas",Tor
+31.816666666666666,Heim,12.0,18.0,"Oertzen, Raphael",Tor
+32.3,Gast,12.0,19.0,"Strub, Georg",Tor
+32.61666666666667,Gast,12.0,20.0,"Zellmann, Niklas",Tor
+33.75,Gast,12.0,21.0,"Waschke, Marcel",7m-Tor
+35.11666666666667,Heim,13.0,21.0,"Matthies, Marcel",Tor
+35.233333333333334,Gast,13.0,22.0,"Kamradt, Tim",Tor
+38.46666666666667,Heim,14.0,22.0,"Ahrens, Jaron",Tor
+39.21666666666667,Heim,15.0,22.0,"Lange, Niklas Alexander",Tor
+41.3,Gast,15.0,23.0,"Strub, Georg",Tor
+42.03333333333333,Heim,16.0,23.0,"Schenzel, Carl",7m-Tor
+42.95,Heim,17.0,23.0,"Berndt, Jonas",Tor
+43.88333333333333,Gast,17.0,24.0,"Alcape Meyer, Afonso",Tor
+44.31666666666667,Heim,18.0,24.0,"Berndt, Jonas",Tor
+45.0,Gast,18.0,25.0,"Waschke, Marcel",Tor
+46.68333333333333,Gast,18.0,26.0,"Waschke, Marcel",7m-Tor
+47.61666666666667,Heim,19.0,26.0,"Schenzel, Carl",7m-Tor
+48.0,Gast,19.0,27.0,"Rudnik, Maximilian",Tor
+50.0,Gast,19.0,28.0,"Rudnik, Maximilian",Tor
+50.583333333333336,Gast,19.0,29.0,"Waschke, Marcel",Tor
+51.38333333333333,Heim,20.0,29.0,"Schenzel, Carl",7m-Tor
+51.93333333333333,Heim,21.0,29.0,"Schenzel, Carl",Tor
+53.56666666666667,Heim,22.0,29.0,"Oertzen, Raphael",Tor
+53.833333333333336,Gast,22.0,30.0,"Winkler, Kevin",Tor
+54.733333333333334,Heim,23.0,30.0,"Berndt, Jonas",Tor
+55.666666666666664,Heim,24.0,30.0,"Köster, Jonathan",Tor
+57.266666666666666,Gast,24.0,31.0,"Reuter, Sören",Tor
+58.43333333333333,Gast,24.0,32.0,"Schmidt, Tom",Tor
+59.36666666666667,Heim,25.0,32.0,"Oertzen, Raphael",Tor
+59.95,Gast,25.0,33.0,"Kamradt, Tim",Tor

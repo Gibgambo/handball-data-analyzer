@@ -14,8 +14,8 @@ PROCESSED_FILES = ("spiele.csv", "spieler_statistiken.csv", "spielereignisse.csv
 
 
 def data_dir():
-    """Wurzel des Datenverzeichnisses."""
-    return Path(os.environ.get(DATA_DIR_ENV, PROJECT_ROOT / "data"))
+    """Wurzel des Datenverzeichnisses (relative Angaben gelten ab Projekt-Root)."""
+    return PROJECT_ROOT / os.environ.get(DATA_DIR_ENV, "data")
 
 
 def _sub_dir(name):

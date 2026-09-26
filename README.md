@@ -1,24 +1,29 @@
 # 🤾 Handball Analytics Pipeline
 
-Vollständige Datenanalyse-Pipeline für Handball-Spielberichte (PDF) mit interaktivem Dashboard.
+Analysiert die Spielberichte einer Handball-Staffel aus nuLiga und stellt sie in einem interaktiven Dashboard dar.
 
 ## 📁 Projektstruktur
 
 ```
-handball-analytics/
-├── data/                 # nicht versioniert, wird automatisch angelegt
-│   ├── raw/              # PDF-Dateien hier ablegen
-│   ├── processed/        # Extrahierte CSVs
-│   ├── analysis/         # Analyseergebnisse
-│   └── visualizations/   # Generierte Plots
+handball-data-analyzer/
+├── data/                   # nicht versioniert, wird automatisch angelegt
+│   ├── staffel.json        # Geladene Staffel: Staffel-Link, Stand, letzter Import
+│   ├── raw/                # Spielberichte (PDF) der Geladenen Staffel
+│   ├── processed/          # Extrahierte CSVs
+│   ├── analysis/           # Exportierte Analyseergebnisse
+│   └── visualizations/     # Generierte Plots
 ├── src/
-|   |── scraper.py        # PDF Extraktion von Nuliga
-│   ├── pdf_parser.py     # PDF → CSV Extraktion
-│   ├── paths.py          # Zentrale Datenpfade
-│   ├── analyzer.py       # Datenanalyse
-│   ├── visualizer.py     # Visualisierungen
-│   └── dashboard.py      # Streamlit Dashboard
+│   ├── dashboard.py        # Streamlit Dashboard (Einstiegspunkt)
+│   ├── staffel.py          # Staffel laden, Aktualisieren, Staffelwechsel
+│   ├── nuliga.py           # Zugriff auf nuLiga
+│   ├── pdf_parser.py       # Spielbericht (PDF) → CSV
+│   ├── analyzer.py         # Datenanalyse
+│   ├── visualizer.py       # Visualisierungen
+│   ├── paths.py            # Zentrale Datenpfade
+│   └── scraper.py          # Altes Download-Skript (nicht mehr nötig)
+├── tests/                  # pytest, ohne Netzwerk (Fake-nuLiga + Fixtures)
 ├── requirements.txt
+├── requirements-dev.txt
 └── README.md
 ```
 
@@ -38,68 +43,66 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
+Für die Tests zusätzlich:
+```bash
+pip install -r requirements-dev.txt
+```
+
 ### 4. Datenverzeichnis
-Das Datenverzeichnis `data/` wird nicht mehr im Repository versioniert und bei Bedarf automatisch angelegt.
-Alle Skripte finden es unabhängig vom Arbeitsverzeichnis (relativ zum Projekt, siehe `src/paths.py`).
+Das Datenverzeichnis `data/` wird nicht im Repository versioniert und bei Bedarf automatisch angelegt
+(relativ zum Projekt, unabhängig vom Arbeitsverzeichnis, siehe `src/paths.py`).
 
 Über die Umgebungsvariable `HANDBALL_DATA_DIR` lässt sich ein anderes Datenverzeichnis verwenden.
 
-Der bisher versionierte Datenstand (HVNB 25/26, Vorrunde, 27 Spiele) ist im Git-Tag `staffel-hvnb-25-26` gesichert:
-```bash
-git checkout staffel-hvnb-25-26 -- data && git restore --staged data
-```
-
 ## 📊 Verwendung
 
-### Schritt 1: PDF-Dateien extrahieren
-Handball-Spielbericht-PDFs mit dem scraper von der Nuliga Seite holen.
+Alles läuft über das Dashboard – Skripte müssen nicht mehr einzeln ausgeführt werden.
 
-```bash
-python src/scraper.py
-```
-
-### Schritt 2: CSV-Dateien extrahieren
-```bash
-python src/pdf_parser.py
-```
-
-**Output:**
-- `data/processed/spiele.csv` - Spielinformationen
-- `data/processed/spieler_statistiken.csv` - Spielerstatistiken
-- `data/processed/spielereignisse.csv` - Chronologischer Spielverlauf
-
-### Schritt 3: Daten analysieren
-```bash
-python src/analyzer.py
-```
-
-**Output:**
-- `data/analysis/top_scorer.csv`
-- `data/analysis/team_statistics.csv`
-- `data/analysis/home_advantage.csv`
-- `data/analysis/goals_by_minute.csv`
-- `data/analysis/penalty_statistics.csv`
-- `data/analysis/7m_efficiency.csv`
-- `data/analysis/game_tempo.csv`
-
-### Schritt 4: Visualisierungen erstellen
-```bash
-python src/visualizer.py
-```
-
-**Output:** PNG-Dateien in `data/visualizations/`
-
-### Schritt 5: Dashboard starten
+### Dashboard starten
 ```bash
 streamlit run src/dashboard.py
 ```
 
 **Öffnet automatisch:** `http://localhost:8501`
 
+### Staffel laden
+Beim ersten Start ist noch keine Staffel geladen. Füge einen **Staffel-Link** aus nuLiga ein und klicke
+auf **„Staffel laden“**. Welche Ansicht der Link zeigt (Tabelle, Spielplan, Vorrunde, Rückrunde …), ist egal:
+Die App lädt immer alle Spielberichte der Staffel (Vorrunde und Rückrunde) und wertet sie aus.
+
+Das Dashboard zeigt immer genau eine Staffel, die **Geladene Staffel**. Saison, Staffel, Stand sowie Anzahl
+der Spiele und Spieler stehen in der Sidebar.
+
+### Aktualisieren
+Im Laufe der Saison erscheinen neue Spielberichte. **„🔄 Aktualisieren“** in der Sidebar ergänzt die
+Geladene Staffel um neu erschienene Spielberichte; bereits vorhandene werden nicht erneut geladen.
+
+### Staffelwechsel
+Auf der Seite **„⚙️ Daten verwalten“** lässt sich unter „Staffel wechseln“ ein neuer Staffel-Link setzen.
+Dabei werden alle Daten der bisherigen Staffel verworfen (Spielberichte, Auswertungen, Exporte) und die
+neue Staffel vollständig geladen. Mit demselben Link lässt sich die Staffel auch komplett neu laden,
+z. B. nachdem der Verband einen Spielbericht korrigiert hat.
+
+### Import-Meldungen
+Nach jedem Import zeigt die Sidebar eine Kurzmeldung; Details stehen unter **„⚙️ Daten verwalten“**:
+- **Übersprungene Spielberichte** – Spieldaten (Spielnummer, Datum, Mannschaften, Endstand) waren nicht
+  vollständig lesbar; sie fließen in keine Auswertung ein.
+- **Spielberichte mit Warnung** – Spielerstatistiken oder Spielverlauf fehlen; das Spiel zählt für
+  Ergebnis-Auswertungen, Torschützen- und Spielverlaufs-Auswertungen haben dort Lücken.
+
+### Analysen exportieren
+Auf der Seite **„📋 Alle Statistiken“** lassen sich einzelne Analysen als CSV herunterladen oder alle
+nach `data/analysis/` speichern.
+
+### Tests ausführen
+```bash
+pytest
+```
+
 ## 📝 Datenformat
 
-### PDF-Anforderungen
-Die Pipeline ist optimiert für HVNB (Handballverband Niedersachsen-Bremen) Spielberichte mit:
+### Anforderungen an Spielberichte
+Die Auswertung ist optimiert für Spielberichte des HVNB (Handballverband Niedersachsen-Bremen) mit:
 - Spielnummer, Datum, Teams
 - Spielerstatistiken (Trikot, Name, Tore)
 - Spielverlauf mit Zeitstempeln

@@ -20,7 +20,7 @@ handball-data-analyzer/
 │   ├── analyzer.py         # Datenanalyse
 │   ├── visualizer.py       # Visualisierungen
 │   ├── paths.py            # Zentrale Datenpfade
-│   └── scraper.py          # Kommandozeile: Staffel laden / Aktualisieren
+│   └── kommandozeile.py    # Kommandozeile: Staffel laden / Aktualisieren
 ├── tests/                  # pytest, ohne Netzwerk (Fake-nuLiga + Fixtures)
 ├── requirements.txt
 ├── requirements-dev.txt
@@ -93,9 +93,9 @@ Nach jedem Import zeigt die Sidebar eine Kurzmeldung; Details stehen unter **„
 ### Ohne Dashboard (Kommandozeile)
 Staffel laden und Aktualisieren gehen auch ohne Dashboard:
 ```bash
-python src/scraper.py                                  # Aktualisieren der geladenen Staffel
-python src/scraper.py "<Staffel-Link>"                 # erste Staffel laden
-python src/scraper.py "<Staffel-Link>" --verwerfen     # Staffelwechsel (verwirft alle bisherigen Daten)
+python src/kommandozeile.py                                  # Aktualisieren der geladenen Staffel
+python src/kommandozeile.py "<Staffel-Link>"                 # erste Staffel laden
+python src/kommandozeile.py "<Staffel-Link>" --verwerfen     # Staffelwechsel (verwirft alle bisherigen Daten)
 ```
 Für einen regelmäßigen Abruf (z. B. per Aufgabenplanung) den Aufruf ohne Staffel-Link verwenden.
 Übersprungene Spielberichte und Spielberichte mit Warnung werden direkt aufgelistet.

@@ -1,8 +1,8 @@
 """Kommandozeile für die Geladene Staffel (Begriffe siehe CONTEXT.md).
 
-    python src/scraper.py                              Aktualisieren: neu erschienene Spielberichte ergänzen
-    python src/scraper.py <Staffel-Link>               Erste Staffel laden
-    python src/scraper.py <Staffel-Link> --verwerfen   Staffelwechsel bei bereits Geladener Staffel
+    python src/kommandozeile.py                              Aktualisieren: neu erschienene Spielberichte ergänzen
+    python src/kommandozeile.py <Staffel-Link>               Erste Staffel laden
+    python src/kommandozeile.py <Staffel-Link> --verwerfen   Staffelwechsel bei bereits Geladener Staffel
 
 Dieselben Abläufe wie im Dashboard; die Arbeit erledigt das Staffel-Modul.
 """
@@ -14,7 +14,7 @@ from staffel import StaffelFehler, Staffelverwaltung
 
 def _argumente(argv):
     parser = argparse.ArgumentParser(
-        prog="scraper.py",
+        prog="kommandozeile.py",
         description="Ohne Staffel-Link wird die Geladene Staffel aktualisiert, "
                     "mit Staffel-Link wird die Staffel des Links vollständig geladen.",
     )

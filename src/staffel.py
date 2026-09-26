@@ -125,7 +125,7 @@ def _staffel_adresse(staffel_link):
     host = (url.hostname or "").lower()
     if not (host == "liga.nu" or host.endswith(".liga.nu")):
         raise UngueltigerStaffelLink(
-            "Das ist kein nuLiga-Link. Bitte einen Link von einer nuLiga-Staffelseite "
+            "Das ist kein Staffel-Link. Bitte einen Link von einer nuLiga-Staffelseite "
             "(…liga.nu) einfügen."
         )
     query = parse_qs(url.query)

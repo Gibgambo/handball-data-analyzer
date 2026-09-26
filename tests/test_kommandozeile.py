@@ -39,7 +39,7 @@ def test_aktualisieren_ohne_geladene_staffel_scheitert(verwaltung, capsys):
 def test_ungueltiger_staffel_link_wird_gemeldet(verwaltung, capsys):
     assert kommandozeile.main(["https://example.com/staffel"], verwaltung) == 1
 
-    assert "kein nuLiga-Link" in capsys.readouterr().err
+    assert "kein Staffel-Link" in capsys.readouterr().err
     assert verwaltung.geladene_staffel() is None
 
 

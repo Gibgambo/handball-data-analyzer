@@ -40,6 +40,10 @@ _Avoid_: Refresh, Neu scrapen
 Einen neuen Staffel-Link setzen; alle Daten der bisherigen Staffel werden verworfen und die neue Staffel vollständig geladen.
 _Avoid_: Saisonwechsel, Reset
 
+**Import**:
+Oberbegriff für Staffelwechsel und Aktualisieren: Spielberichte der Staffel von nuLiga laden und auswerten. Sein Ergebnis – neue Spielberichte, Übersprungene Spielberichte und Spielberichte mit Warnung – wird zur Geladenen Staffel als letzter Import gemeldet.
+_Avoid_: Scrapen, Download
+
 **Vorrunde / Rückrunde**:
 Die beiden Hälften einer Staffel; eine Staffel umfasst immer beide.
 _Avoid_: Hinrunde

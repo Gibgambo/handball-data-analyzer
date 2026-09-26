@@ -55,7 +55,7 @@ def test_ungueltiger_link_zeigt_meldung(nuliga):
     app.button[0].click().run()
 
     assert not app.exception
-    assert "kein nuLiga-Link" in texte(app.error)
+    assert "kein Staffel-Link" in texte(app.error)
     assert staffel.Staffelverwaltung(nuliga).geladene_staffel() is None
 
 

@@ -4,9 +4,10 @@ import os
 import re
 from datetime import datetime
 
-RAW_DIR = "../data/raw"
-PROCESSED_DIR = "../data/processed"
-os.makedirs(PROCESSED_DIR, exist_ok=True)
+import paths
+
+RAW_DIR = paths.raw_dir()
+PROCESSED_DIR = paths.processed_dir()
 
 def extract_game_info(text):
     """Extrahiert Basisinformationen über das Spiel"""

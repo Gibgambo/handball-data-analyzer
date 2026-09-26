@@ -6,7 +6,7 @@ Vollständige Datenanalyse-Pipeline für Handball-Spielberichte (PDF) mit intera
 
 ```
 handball-analytics/
-├── data/
+├── data/                 # nicht versioniert, wird automatisch angelegt
 │   ├── raw/              # PDF-Dateien hier ablegen
 │   ├── processed/        # Extrahierte CSVs
 │   ├── analysis/         # Analyseergebnisse
@@ -14,6 +14,7 @@ handball-analytics/
 ├── src/
 |   |── scraper.py        # PDF Extraktion von Nuliga
 │   ├── pdf_parser.py     # PDF → CSV Extraktion
+│   ├── paths.py          # Zentrale Datenpfade
 │   ├── analyzer.py       # Datenanalyse
 │   ├── visualizer.py     # Visualisierungen
 │   └── dashboard.py      # Streamlit Dashboard
@@ -37,9 +38,15 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-### 4. Ordnerstruktur erstellen
+### 4. Datenverzeichnis
+Das Datenverzeichnis `data/` wird nicht mehr im Repository versioniert und bei Bedarf automatisch angelegt.
+Alle Skripte finden es unabhängig vom Arbeitsverzeichnis (relativ zum Projekt, siehe `src/paths.py`).
+
+Über die Umgebungsvariable `HANDBALL_DATA_DIR` lässt sich ein anderes Datenverzeichnis verwenden.
+
+Der bisher versionierte Datenstand (HVNB 25/26, Vorrunde, 27 Spiele) ist im Git-Tag `staffel-hvnb-25-26` gesichert:
 ```bash
-mkdir -p data/raw data/processed data/analysis data/visualizations
+git checkout staffel-hvnb-25-26 -- data && git restore --staged data
 ```
 
 ## 📊 Verwendung

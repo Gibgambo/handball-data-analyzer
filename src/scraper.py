@@ -5,15 +5,14 @@ from urllib.parse import urlparse, parse_qs
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+import paths
+
 # URL der Liga-Seite
 BASE_URL = "https://hvnb-handball.liga.nu"
 START_URL = (
     "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage?"
     "displayTyp=vorrunde&displayDetail=meetings&championship=HVNB+25%2F26&group=431976"
 )
-
-# Zielordner für PDFs
-DOWNLOAD_DIR = "../data/raw"
 
 def fetch_pdf_links(url):
     """Lädt die Liga-Seite und extrahiert alle PDF-Links."""
@@ -32,8 +31,10 @@ def fetch_pdf_links(url):
     return pdf_links
 
 
-def download_pdfs(links, folder=DOWNLOAD_DIR):
+def download_pdfs(links, folder=None):
     """Lädt alle PDFs aus der Liste herunter."""
+    if folder is None:
+        folder = paths.raw_dir()
     os.makedirs(folder, exist_ok=True)
     
     for link in links:

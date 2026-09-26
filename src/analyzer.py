@@ -3,10 +3,12 @@ import numpy as np
 import os
 from datetime import datetime
 
+import paths
+
 class HandballAnalyzer:
-    def __init__(self, data_dir="../data/processed"):
+    def __init__(self, data_dir=None):
         """Initialisiert den Analyzer mit dem Datenverzeichnis"""
-        self.data_dir = data_dir
+        self.data_dir = data_dir if data_dir is not None else paths.processed_dir()
         self.df_games = None
         self.df_players = None
         self.df_events = None
@@ -338,8 +340,10 @@ class HandballAnalyzer:
         except:
             return 0
     
-    def save_all_analyses(self, output_dir="../data/analysis"):
+    def save_all_analyses(self, output_dir=None):
         """Speichert ALLE Analysen als CSV-Dateien"""
+        if output_dir is None:
+            output_dir = paths.analysis_dir()
         os.makedirs(output_dir, exist_ok=True)
         
         print(f"\n💾 Speichere Analysen in {output_dir}...\n")
@@ -486,10 +490,10 @@ class HandballAnalyzer:
 # Beispiel-Verwendung
 if __name__ == "__main__":
     # Analyzer mit Verzeichnis initialisieren
-    analyzer = HandballAnalyzer(data_dir="../data/processed")
+    analyzer = HandballAnalyzer()
     
     # Zusammenfassung ausgeben
     analyzer.print_summary()
     
     # Alle Analysen als CSV speichern
-    analyzer.save_all_analyses(output_dir="../data/analysis")
+    analyzer.save_all_analyses()

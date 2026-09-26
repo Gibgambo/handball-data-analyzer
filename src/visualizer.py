@@ -4,12 +4,14 @@ import pandas as pd
 import numpy as np
 import os
 
+import paths
+
 # Styling
 plt.style.use('seaborn-v0_8-darkgrid')
 sns.set_palette("husl")
 
 class HandballVisualizer:
-    def __init__(self, analyzer=None, data_dir="../data/processed"):
+    def __init__(self, analyzer=None, data_dir=None):
         """Initialisiert den Visualizer mit einem Analyzer"""
         if analyzer is None:
             from analyzer import HandballAnalyzer
@@ -17,8 +19,7 @@ class HandballVisualizer:
         else:
             self.analyzer = analyzer
             
-        self.output_dir = "../data/visualizations"
-        os.makedirs(self.output_dir, exist_ok=True)
+        self.output_dir = paths.visualizations_dir()
     
     def plot_top_scorer(self, top_n=15, save=True):
         """Barplot: Top Torschützen"""
@@ -411,7 +412,7 @@ class HandballVisualizer:
 
 if __name__ == "__main__":
     # Visualizer mit Standard-Datenverzeichnis
-    visualizer = HandballVisualizer(data_dir="../data/processed")
+    visualizer = HandballVisualizer()
     visualizer.create_all_visualizations()
     
     # Optional: Plots anzeigen

@@ -3,7 +3,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
-from pathlib import Path
+
+import paths
 
 # Page Config
 st.set_page_config(
@@ -183,28 +184,9 @@ st.markdown("""
 
 # Cache für Performance
 @st.cache_resource
-def load_analyzer(data_dir=None):
-    if data_dir is None:
-        # Versuche verschiedene Pfade
-        possible_paths = [
-            Path("data/processed"),  # Streamlit Cloud
-            Path("../data/processed"),  # Lokal
-            Path(__file__).parent.parent / "data" / "processed"  # Absolut
-        ]
-        
-        for path in possible_paths:
-            if path.exists():
-                data_dir = str(path)
-                break
-        else:
-            data_dir = "data/processed"  # Fallback
-    
-    try:
-        from analyzer import HandballAnalyzer
-        return HandballAnalyzer(data_dir=data_dir)
-    except FileNotFoundError:
-        st.error(f"❌ Daten nicht gefunden in: {data_dir}")
-        return None
+def load_analyzer():
+    from analyzer import HandballAnalyzer
+    return HandballAnalyzer()
 
 @st.cache_resource
 def load_visualizer(_analyzer):
@@ -213,10 +195,17 @@ def load_visualizer(_analyzer):
     return HandballVisualizer(_analyzer)
 
 # Analyzer und Visualizer laden
-analyzer = load_analyzer()
-
-if analyzer is None:
+if not paths.has_processed_data():
+    st.title("🤾 Handball Analytics Dashboard")
+    st.info(
+        "📭 **Noch keine Daten vorhanden.**\n\n"
+        f"Es liegen noch keine Spielberichte in `{paths.data_dir()}` vor. "
+        "Lade die Spielberichte mit `python src/scraper.py` herunter und "
+        "extrahiere sie mit `python src/pdf_parser.py`."
+    )
     st.stop()
+
+analyzer = load_analyzer()
 
 visualizer = load_visualizer(analyzer)
 
@@ -833,8 +822,8 @@ elif page == "📋 Alle Statistiken":
         # Alle Analysen auf einmal speichern
         if st.button("💾 Alle Analysen lokal speichern", type="primary"):
             with st.spinner("Speichere Analysen..."):
-                analyzer.save_all_analyses(output_dir="../data/analysis")
-                st.success("✅ Alle Analysen wurden in ../data/analysis/ gespeichert!")
+                analyzer.save_all_analyses()
+                st.success(f"✅ Alle Analysen wurden in {paths.analysis_dir()} gespeichert!")
 
 # Footer
 st.markdown("---")

@@ -1,75 +1,71 @@
-import os
-import requests
-import re
-from urllib.parse import urlparse, parse_qs
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin
+"""Kommandozeile für die Geladene Staffel (Begriffe siehe CONTEXT.md).
 
-import paths
+    python src/scraper.py                              Aktualisieren: neu erschienene Spielberichte ergänzen
+    python src/scraper.py <Staffel-Link>               Erste Staffel laden
+    python src/scraper.py <Staffel-Link> --verwerfen   Staffelwechsel bei bereits Geladener Staffel
 
-# URL der Liga-Seite
-BASE_URL = "https://hvnb-handball.liga.nu"
-START_URL = (
-    "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage?"
-    "displayTyp=vorrunde&displayDetail=meetings&championship=HVNB+25%2F26&group=431976"
-)
+Dieselben Abläufe wie im Dashboard; die Arbeit erledigt das Staffel-Modul.
+"""
+import argparse
+import sys
 
-def fetch_pdf_links(url):
-    """Lädt die Liga-Seite und extrahiert alle PDF-Links."""
-    response = requests.get(url)
-    response.raise_for_status()
-    
-    soup = BeautifulSoup(response.text, "html.parser")
-    pdf_links = []
-    
-    # Finde alle <a> Tags mit class="picto-pdf"
-    for a_tag in soup.find_all("a", class_="picto-pdf"):
-        relative_link = a_tag.get("href")
-        full_link = urljoin(BASE_URL, relative_link)
-        pdf_links.append(full_link)
-    
-    return pdf_links
+from staffel import StaffelFehler, Staffelverwaltung
 
 
-def download_pdfs(links, folder=None):
-    """Lädt alle PDFs aus der Liste herunter."""
-    if folder is None:
-        folder = paths.raw_dir()
-    os.makedirs(folder, exist_ok=True)
-    
-    for link in links:
-        file_name = safe_filename_from_url(link)
-        file_path = os.path.join(folder, file_name)
-        
-        print(f"Lade herunter: {file_name}")
-        response = requests.get(link)
-        response.raise_for_status()
-        
-        with open(file_path, "wb") as f:
-            f.write(response.content)
-    
-    print(f"\n✅ {len(links)} PDFs wurden in '{folder}' gespeichert.")
+def _argumente(argv):
+    parser = argparse.ArgumentParser(
+        prog="scraper.py",
+        description="Ohne Staffel-Link wird die Geladene Staffel aktualisiert, "
+                    "mit Staffel-Link wird die Staffel des Links vollständig geladen.",
+    )
+    parser.add_argument("staffel_link", nargs="?", help="Link einer nuLiga-Staffelseite (beliebige Ansicht)")
+    parser.add_argument("--verwerfen", action="store_true",
+                        help="Staffelwechsel bestätigen: alle Daten der bisherigen Staffel werden verworfen")
+    return parser.parse_args(argv)
 
-def safe_filename_from_url(url):
-    """Erzeugt einen sicheren Dateinamen aus der URL."""
-    parsed = urlparse(url)
-    query = parse_qs(parsed.query)
 
-    # Falls 'meeting' vorhanden, nimm das
-    if 'meeting' in query:
-        name = query['meeting'][0]
-    # sonst nimm alles nach 'dokument=' oder fallback
-    elif 'dokument' in query:
-        name = query['dokument'][0]
-    else:
-        name = os.path.basename(parsed.path)
+def main(argv=None, verwaltung=None):
+    """Führt Staffelwechsel (mit Staffel-Link) oder Aktualisieren (ohne) aus; liefert den Exit-Code."""
+    argumente = _argumente(sys.argv[1:] if argv is None else argv)
+    verwaltung = verwaltung if verwaltung is not None else Staffelverwaltung()
 
-    # Entferne verbotene Zeichen
-    name = re.sub(r'[^a-zA-Z0-9_-]', '_', name)
-    return name + ".pdf"
+    def fortschritt(text, anteil):
+        print(f"[{anteil:4.0%}] {text}")
+
+    if argumente.staffel_link and not argumente.verwerfen and verwaltung.geladene_staffel() is not None:
+        print("Es ist bereits eine Staffel geladen. Ein Staffelwechsel verwirft alle ihre Daten "
+              "(Spielberichte, Auswertungen und Exporte); zum Bestätigen --verwerfen angeben.",
+              file=sys.stderr)
+        return 1
+
+    try:
+        if argumente.staffel_link:
+            ergebnis = verwaltung.staffel_wechseln(argumente.staffel_link, fortschritt)
+        else:
+            ergebnis = verwaltung.aktualisieren(fortschritt)
+    except StaffelFehler as e:
+        print(f"Fehler: {e}", file=sys.stderr)
+        return 1
+
+    staffel = verwaltung.geladene_staffel()
+    print(f"\n{ergebnis.kurzmeldung()}")
+    print(f"Geladene Staffel: {staffel.saison}" + (f" – {staffel.staffelname}" if staffel.staffelname else ""))
+    print(f"{staffel.anzahl_spiele} Spiele · {staffel.anzahl_spieler} Spieler")
+
+    if ergebnis.uebersprungen:
+        print("\nÜbersprungene Spielberichte (fließen in keine Auswertung ein):")
+        for bericht in ergebnis.uebersprungen:
+            print(f"  {bericht.kennung}: {bericht.grund}")
+    if ergebnis.mit_warnung:
+        print("\nSpielberichte mit Warnung:")
+        for bericht in ergebnis.mit_warnung:
+            print(f"  {bericht.kennung} (Spiel {bericht.spielnummer}): es fehlt {', '.join(bericht.fehlend)}")
+    return 0
+
 
 if __name__ == "__main__":
-    pdf_links = fetch_pdf_links(START_URL)
-    print(f"Gefundene PDF-Links: {len(pdf_links)}")
-    
-    download_pdfs(pdf_links)
+    # Umgeleitete Ausgaben nutzen unter Windows die Codepage (z. B. cp1252); dort nicht darstellbare
+    # Zeichen (auch aus dem pdf_parser) werden ersetzt statt einen UnicodeEncodeError auszulösen
+    for strom in (sys.stdout, sys.stderr):
+        strom.reconfigure(errors="replace")
+    sys.exit(main())

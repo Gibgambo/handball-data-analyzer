@@ -6,6 +6,10 @@ from nuliga import NuLigaNichtErreichbar, NuLigaSeiteNichtGefunden
 
 FIXTURES = Path(__file__).resolve().parent / "fixtures" / "nuliga"
 
+BASIS = "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage"
+LINK_VORRUNDE = f"{BASIS}?displayTyp=vorrunde&displayDetail=meetings&championship=HVNB+25%2F26&group=431976"
+LINK_REGIONALLIGA = f"{BASIS}?displayTyp=gesamt&displayDetail=meetings&championship=HVNB+25%2F26&group=432326"
+
 
 def staffelseite(name):
     return (FIXTURES / name).read_text(encoding="utf-8")

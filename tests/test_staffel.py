@@ -2,17 +2,8 @@ import pytest
 
 import paths
 from analyzer import HandballAnalyzer
-from fake_nuliga import FakeNuLiga, staffelseite
+from fake_nuliga import BASIS, LINK_REGIONALLIGA, LINK_VORRUNDE, FakeNuLiga, staffelseite
 from staffel import NuLigaNichtErreichbarFehler, StaffelFehler, Staffelverwaltung, UngueltigerStaffelLink
-
-BASIS = "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage"
-LINK_VORRUNDE = f"{BASIS}?displayTyp=vorrunde&displayDetail=meetings&championship=HVNB+25%2F26&group=431976"
-LINK_REGIONALLIGA = f"{BASIS}?displayTyp=gesamt&displayDetail=meetings&championship=HVNB+25%2F26&group=432326"
-
-
-@pytest.fixture(autouse=True)
-def datenverzeichnis(monkeypatch, tmp_path):
-    monkeypatch.setenv(paths.DATA_DIR_ENV, str(tmp_path / "data"))
 
 
 @pytest.fixture

@@ -3,18 +3,14 @@ from pathlib import Path
 import pytest
 from streamlit.testing.v1 import AppTest
 
-import paths
 import staffel
-from fake_nuliga import FakeNuLiga, staffelseite
+from fake_nuliga import LINK_REGIONALLIGA, LINK_VORRUNDE, FakeNuLiga, staffelseite
 
 DASHBOARD = str(Path(__file__).resolve().parent.parent / "src" / "dashboard.py")
-LINK = ("https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage"
-        "?championship=HVNB+25%2F26&group=431976")
 
 
 @pytest.fixture
-def nuliga(monkeypatch, tmp_path):
-    monkeypatch.setenv(paths.DATA_DIR_ENV, str(tmp_path))
+def nuliga(monkeypatch):
     fake = FakeNuLiga({"431976": staffelseite("431976_frueh.html")})
     monkeypatch.setattr(staffel, "HttpNuLiga", lambda: fake)
     return fake
@@ -40,7 +36,7 @@ def test_ohne_staffel_zeigt_das_dashboard_nur_den_begruessungszustand(nuliga):
 def test_staffel_laden_aus_dem_begruessungszustand(nuliga):
     app = starten()
 
-    app.text_input[0].input(LINK).run()
+    app.text_input[0].input(LINK_VORRUNDE).run()
     app.button[0].click().run()
 
     assert not app.exception
@@ -64,7 +60,7 @@ def test_ungueltiger_link_zeigt_meldung(nuliga):
 
 
 def test_aktualisieren_zeigt_neue_zahlen_ohne_neustart(nuliga):
-    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK)
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
     app = starten()
     assert "3 Spiele" in texte(app.sidebar.info)
     nuliga.seiten["431976"] = staffelseite("431976_spaeter.html")
@@ -81,7 +77,7 @@ def test_aktualisieren_zeigt_neue_zahlen_ohne_neustart(nuliga):
                                    "🎯 7-Meter Analyse", "📈 Team-Vergleich", "⏱️ Zeitanalyse",
                                    "📋 Alle Statistiken"])
 def test_analyseseiten_mit_geladener_staffel(nuliga, seite):
-    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK)
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
     app = starten()
 
     app.sidebar.radio[0].set_value(seite).run()
@@ -91,7 +87,7 @@ def test_analyseseiten_mit_geladener_staffel(nuliga, seite):
 
 def test_staffel_ohne_spiele_zeigt_hinweis_statt_diagrammen(nuliga):
     nuliga.seiten["431976"] = staffelseite("431976_leer.html")
-    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK)
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
 
     app = starten()
 
@@ -102,7 +98,7 @@ def test_staffel_ohne_spiele_zeigt_hinweis_statt_diagrammen(nuliga):
 
 def test_daten_verwalten_zeigt_details_des_letzten_imports(nuliga):
     nuliga.seiten["431976"] = staffelseite("431976_problemfaelle.html")
-    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK)
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
     app = starten()
 
     app.sidebar.radio[0].set_value("⚙️ Daten verwalten").run()
@@ -115,11 +111,11 @@ def test_daten_verwalten_zeigt_details_des_letzten_imports(nuliga):
 
 def test_staffelwechsel_erst_nach_bestaetigung(nuliga):
     nuliga.seiten["432326"] = staffelseite("432326_gesamt.html")
-    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK)
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
     app = starten()
     app.sidebar.radio[0].set_value("⚙️ Daten verwalten").run()
 
-    app.text_input[0].input(LINK.replace("431976", "432326")).run()
+    app.text_input[0].input(LINK_REGIONALLIGA).run()
     wechseln = next(b for b in app.button if b.label == "Staffel wechseln")
     assert wechseln.disabled
 

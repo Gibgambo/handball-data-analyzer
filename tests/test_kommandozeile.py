@@ -1,17 +1,8 @@
 import pytest
 
 import kommandozeile
-import paths
-from fake_nuliga import FakeNuLiga, staffelseite
+from fake_nuliga import LINK_VORRUNDE, FakeNuLiga, staffelseite
 from staffel import Staffelverwaltung
-
-BASIS = "https://hvnb-handball.liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage"
-LINK = f"{BASIS}?displayTyp=vorrunde&displayDetail=meetings&championship=HVNB+25%2F26&group=431976"
-
-
-@pytest.fixture(autouse=True)
-def datenverzeichnis(monkeypatch, tmp_path):
-    monkeypatch.setenv(paths.DATA_DIR_ENV, str(tmp_path / "data"))
 
 
 @pytest.fixture
@@ -20,10 +11,10 @@ def verwaltung():
 
 
 def test_mit_staffel_link_wird_die_staffel_geladen(verwaltung, capsys):
-    assert kommandozeile.main([LINK], verwaltung) == 0
+    assert kommandozeile.main([LINK_VORRUNDE], verwaltung) == 0
 
     staffel = verwaltung.geladene_staffel()
-    assert staffel.staffel_link == LINK
+    assert staffel.staffel_link == LINK_VORRUNDE
     assert staffel.anzahl_spiele == 3
     ausgabe = capsys.readouterr().out
     assert "3 neue Spielberichte" in ausgabe
@@ -31,7 +22,7 @@ def test_mit_staffel_link_wird_die_staffel_geladen(verwaltung, capsys):
 
 
 def test_ohne_staffel_link_wird_die_geladene_staffel_aktualisiert(verwaltung, capsys):
-    kommandozeile.main([LINK], verwaltung)
+    kommandozeile.main([LINK_VORRUNDE], verwaltung)
     capsys.readouterr()
 
     assert kommandozeile.main([], verwaltung) == 0
@@ -55,7 +46,7 @@ def test_ungueltiger_staffel_link_wird_gemeldet(verwaltung, capsys):
 def test_problemfaelle_werden_mit_grund_aufgelistet(capsys):
     verwaltung = Staffelverwaltung(FakeNuLiga({"431976": staffelseite("431976_problemfaelle.html")}))
 
-    assert kommandozeile.main([LINK], verwaltung) == 0
+    assert kommandozeile.main([LINK_VORRUNDE], verwaltung) == 0
 
     ausgabe = capsys.readouterr().out
     assert "9900001" in ausgabe and "nicht lesbar" in ausgabe
@@ -64,19 +55,19 @@ def test_problemfaelle_werden_mit_grund_aufgelistet(capsys):
 
 
 def test_staffelwechsel_bei_geladener_staffel_braucht_verwerfen(verwaltung, capsys):
-    kommandozeile.main([LINK], verwaltung)
+    kommandozeile.main([LINK_VORRUNDE], verwaltung)
     stand = verwaltung.geladene_staffel().aktualisiert_am
     capsys.readouterr()
 
-    assert kommandozeile.main([LINK], verwaltung) == 1
+    assert kommandozeile.main([LINK_VORRUNDE], verwaltung) == 1
 
     assert "--verwerfen" in capsys.readouterr().err
     assert verwaltung.geladene_staffel().aktualisiert_am == stand
 
 
 def test_staffelwechsel_mit_verwerfen_laedt_die_staffel_neu(verwaltung, capsys):
-    kommandozeile.main([LINK], verwaltung)
+    kommandozeile.main([LINK_VORRUNDE], verwaltung)
 
-    assert kommandozeile.main([LINK, "--verwerfen"], verwaltung) == 0
+    assert kommandozeile.main([LINK_VORRUNDE, "--verwerfen"], verwaltung) == 0
 
     assert "3 neue Spielberichte" in capsys.readouterr().out

@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import paths
+from staffel import StaffelFehler, Staffelverwaltung
 
 # Page Config
 st.set_page_config(
@@ -193,20 +194,56 @@ def load_visualizer(_analyzer):
     from visualizer import HandballVisualizer
     return HandballVisualizer(_analyzer)
 
-# Analyzer und Visualizer laden
-if not paths.has_processed_data():
+
+DATEN_VERWALTEN = "⚙️ Daten verwalten"
+LINK_PLATZHALTER = "https://…liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage?championship=…&group=…"
+
+
+def import_ausfuehren(ort, beschriftung, aktion):
+    """Führt einen Import mit Statusanzeige aus; bei Erfolg wird der Cache geleert und neu geladen."""
+    with ort.status(beschriftung, expanded=True) as status:
+        balken = status.progress(0.0)
+
+        def fortschritt(text, anteil):
+            status.update(label=text)
+            balken.progress(min(max(anteil, 0.0), 1.0))
+
+        try:
+            ergebnis = aktion(fortschritt)
+        except StaffelFehler as e:
+            status.update(label="Import fehlgeschlagen", state="error")
+            ort.error(f"❌ {e}")
+            return
+        status.update(label="Import abgeschlossen", state="complete")
+
+    load_analyzer.clear()
+    load_visualizer.clear()
+    st.session_state["import_meldung"] = ergebnis.kurzmeldung()
+    st.session_state["import_mit_details"] = bool(ergebnis.uebersprungen or ergebnis.mit_warnung)
+    st.rerun()
+
+
+verwaltung = Staffelverwaltung()
+staffel = verwaltung.geladene_staffel()
+
+# Begrüßungszustand: ohne Geladene Staffel gibt es keine Analyseseiten
+if staffel is None:
     st.title("🤾 Handball Analytics Dashboard")
     st.info(
-        "📭 **Noch keine Daten vorhanden.**\n\n"
-        f"Es liegen noch keine Spielberichte in `{paths.data_dir()}` vor. "
-        "Lade die Spielberichte mit `python src/scraper.py` herunter und "
-        "extrahiere sie mit `python src/pdf_parser.py`."
+        "📭 **Noch keine Staffel geladen.**\n\n"
+        "Füge den Link einer nuLiga-Staffel ein – egal welche Ansicht (Tabelle, Spielplan, "
+        "Vorrunde, Rückrunde …). Die App lädt immer alle Spielberichte der Staffel."
     )
+    link = st.text_input("Staffel-Link", placeholder=LINK_PLATZHALTER)
+    if st.button("Staffel laden", type="primary", disabled=not link.strip()):
+        import_ausfuehren(st, "Staffel wird geladen …",
+                          lambda fortschritt: verwaltung.staffel_wechseln(link, fortschritt))
     st.stop()
 
-analyzer = load_analyzer()
-
-visualizer = load_visualizer(analyzer)
+hat_spiele = staffel.anzahl_spiele > 0 and paths.has_processed_data()
+if hat_spiele:
+    analyzer = load_analyzer()
+    visualizer = load_visualizer(analyzer)
 
 # Sidebar Navigation
 st.sidebar.title("🤾 Handball Analytics")
@@ -214,15 +251,88 @@ st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigation",
-    ["📊 Übersicht", "🏆 Top Spieler", "🏠 Heimvorteil", "⚽ Spielverlauf", 
-     "🎯 7-Meter Analyse", "📈 Team-Vergleich", "⏱️ Zeitanalyse", "📋 Alle Statistiken"]
+    ["📊 Übersicht", "🏆 Top Spieler", "🏠 Heimvorteil", "⚽ Spielverlauf",
+     "🎯 7-Meter Analyse", "📈 Team-Vergleich", "⏱️ Zeitanalyse", "📋 Alle Statistiken",
+     DATEN_VERWALTEN],
+    key="seite"
 )
 
 st.sidebar.markdown("---")
-st.sidebar.info(f"📊 **Datenstand**\n\n{len(analyzer.df_games)} Spiele analysiert\n\n{len(analyzer.df_players.groupby(['name', 'team']).size())} Spieler")
+staffel_zeilen = [staffel.saison]
+if staffel.staffelname:
+    staffel_zeilen.append(staffel.staffelname)
+staffel_zeilen += [
+    f"Stand: {staffel.aktualisiert_am:%d.%m.%Y, %H:%M} Uhr",
+    f"{staffel.anzahl_spiele} Spiele · {staffel.anzahl_spieler} Spieler",
+]
+st.sidebar.info("📊 **Geladene Staffel**\n\n" + "\n\n".join(staffel_zeilen))
+if st.sidebar.button("🔄 Aktualisieren"):
+    import_ausfuehren(st.sidebar, "Staffel wird aktualisiert …", verwaltung.aktualisieren)
+if "import_meldung" in st.session_state:
+    st.sidebar.success(st.session_state["import_meldung"])
+    if st.session_state.get("import_mit_details"):
+        st.sidebar.button("→ Details", on_click=lambda: st.session_state.update(seite=DATEN_VERWALTEN))
+
+# SEITE: DATEN VERWALTEN
+if page == DATEN_VERWALTEN:
+    st.title("⚙️ Daten verwalten")
+
+    st.subheader("📊 Geladene Staffel")
+    st.markdown(
+        f"- **Saison:** {staffel.saison}\n"
+        f"- **Staffel:** {staffel.staffelname or '–'}\n"
+        f"- **Staffel-Link:** {staffel.staffel_link}\n"
+        f"- **Stand:** {staffel.aktualisiert_am:%d.%m.%Y, %H:%M} Uhr\n"
+        f"- **Spiele:** {staffel.anzahl_spiele} · **Spieler:** {staffel.anzahl_spieler}"
+    )
+
+    st.subheader("📥 Letzter Import")
+    letzter_import = staffel.letzter_import
+    st.markdown(f"**{letzter_import.kurzmeldung()}**")
+
+    st.markdown("#### ⛔ Übersprungene Spielberichte")
+    if letzter_import.uebersprungen:
+        st.caption("Diese Spielberichte fließen in keine Auswertung ein.")
+        st.dataframe(
+            pd.DataFrame([{"nuLiga-ID": u.kennung, "Grund": u.grund} for u in letzter_import.uebersprungen]),
+            width='stretch', hide_index=True
+        )
+    else:
+        st.success("✅ Keine übersprungenen Spielberichte")
+
+    st.markdown("#### ⚠️ Spielberichte mit Warnung")
+    if letzter_import.mit_warnung:
+        st.caption("Diese Spiele zählen für Ergebnis-Auswertungen; Torschützen- oder "
+                   "Spielverlaufs-Auswertungen haben hier Lücken.")
+        st.dataframe(
+            pd.DataFrame([
+                {"Spielnummer": w.spielnummer, "nuLiga-ID": w.kennung, "Fehlt": ", ".join(w.fehlend)}
+                for w in letzter_import.mit_warnung
+            ]),
+            width='stretch', hide_index=True
+        )
+    else:
+        st.success("✅ Keine Spielberichte mit Warnung")
+
+    st.markdown("---")
+    st.subheader("🔀 Staffel wechseln")
+    st.markdown("Setze einen neuen Staffel-Link. Derselbe Link lädt die Staffel komplett neu, "
+                "z. B. nachdem der Verband einen Spielbericht korrigiert hat.")
+    neuer_link = st.text_input("Neuer Staffel-Link", placeholder=LINK_PLATZHALTER)
+    bestaetigt = st.checkbox("Alle Daten der bisherigen Staffel werden verworfen (Spielberichte, "
+                             "Auswertungen und Exporte). Ich möchte die Staffel wechseln.")
+    if st.button("Staffel wechseln", type="primary", disabled=not (neuer_link.strip() and bestaetigt)):
+        import_ausfuehren(st, "Staffel wird gewechselt …",
+                          lambda fortschritt: verwaltung.staffel_wechseln(neuer_link, fortschritt))
+
+# Geladene Staffel ohne Spiele: Hinweis statt Diagrammen
+elif not hat_spiele:
+    st.title(page)
+    st.info("📭 **Noch keine Spielberichte vorhanden.**\n\n"
+            "Sobald nuLiga Spielberichte veröffentlicht, lädst du sie mit „Aktualisieren“ in der Sidebar.")
 
 # SEITE: ÜBERSICHT
-if page == "📊 Übersicht":
+elif page == "📊 Übersicht":
     st.title("🤾 Handball Analytics Dashboard")
     st.markdown("### Willkommen zur umfassenden Handball-Datenanalyse!")
     

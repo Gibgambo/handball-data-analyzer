@@ -2,12 +2,10 @@ import pdfplumber
 import pandas as pd
 import os
 import re
-from datetime import datetime
 
 import paths
 
-RAW_DIR = paths.raw_dir()
-PROCESSED_DIR = paths.processed_dir()
+GAMES_CSV, PLAYERS_CSV, EVENTS_CSV = paths.PROCESSED_FILES
 
 def extract_game_info(text):
     """Extrahiert Basisinformationen über das Spiel"""
@@ -249,111 +247,149 @@ def extract_game_events(text):
     
     return events
 
-# Hauptverarbeitung
-all_game_info = []
-all_player_stats = []
-all_events = []
+GAME_COLUMNS = [
+    'spielnummer', 'datum', 'spielbeginn', 'heimmannschaft', 'gastmannschaft',
+    'endstand_heim', 'endstand_gast', 'halbzeit_heim', 'halbzeit_gast', 'spielort', 'pdf_file'
+]
+PLAYER_COLUMNS = [
+    'trikotnummer', 'name', 'tore', 'siebenmeter_tore', 'siebenmeter_versuche', 'gelbe_karten',
+    'zweiminuten_strafen', 'disqualifikation', 'team', 'pdf_file', 'spielnummer'
+]
+EVENT_COLUMNS = [
+    'team', 'zeit', 'stand_heim', 'stand_gast', 'ereignis', 'trikotnummer', 'spieler',
+    'pdf_file', 'spielnummer'
+]
 
-for pdf_file in os.listdir(RAW_DIR):
-    if not pdf_file.endswith(".pdf"):
-        continue
-    
-    pdf_path = os.path.join(RAW_DIR, pdf_file)
-    print(f"\n📄 Verarbeite: {pdf_file}")
-    
+
+def read_text(pdf_path):
+    """Liest den gesamten Text eines Spielberichts (wirft, wenn er nicht lesbar ist)."""
     with pdfplumber.open(pdf_path) as pdf:
-        # Gesamten Text extrahieren
-        text = ""
-        for page in pdf.pages:
-            text += page.extract_text() + "\n"
-        
-        # Spielinformationen
-        game_info = extract_game_info(text)
-        game_info['pdf_file'] = pdf_file
-        all_game_info.append(game_info)
-        
-        print(f"  ✓ Spiel: {game_info.get('heimmannschaft')} vs {game_info.get('gastmannschaft')}")
-        
-        # Spielerstatistiken - NEUE METHODE
+        return "".join((page.extract_text() or "") + "\n" for page in pdf.pages)
+
+
+def extract_report(pdf_path):
+    """Extrahiert einen Spielbericht.
+
+    Rückgabe: (Spieldaten, Spielerstatistiken, Spielverlauf) – ein Dict und zwei Listen von Dicts.
+    """
+    pdf_file = os.path.basename(pdf_path)
+    text = read_text(pdf_path)
+
+    # Spielinformationen
+    game_info = extract_game_info(text)
+    game_info['pdf_file'] = pdf_file
+    print(f"  ✓ Spiel: {game_info.get('heimmannschaft')} vs {game_info.get('gastmannschaft')}")
+
+    # Spielerstatistiken (ohne beide Mannschaftsnamen lassen sich die Sektionen nicht finden)
+    players = []
+    if game_info.get('heimmannschaft') and game_info.get('gastmannschaft'):
         players = extract_all_players(
-            text, 
+            text,
             game_info.get('heimmannschaft'),
             game_info.get('gastmannschaft')
         )
-        
-        for player in players:
-            player['pdf_file'] = pdf_file
-            player['spielnummer'] = game_info.get('spielnummer')
+    for player in players:
+        player['pdf_file'] = pdf_file
+        player['spielnummer'] = game_info.get('spielnummer')
+
+    # Spielereignisse
+    events = extract_game_events(text)
+    for event in events:
+        event['pdf_file'] = pdf_file
+        event['spielnummer'] = game_info.get('spielnummer')
+
+    return game_info, players, events
+
+
+def write_csvs(reports, output_dir=None):
+    """Schreibt die drei CSVs aus extrahierten Spielberichten (Tripel aus extract_report).
+
+    Rückgabe: (df_games, df_players, df_events)
+    """
+    if output_dir is None:
+        output_dir = paths.processed_dir()
+
+    all_game_info, all_player_stats, all_events = [], [], []
+    for game_info, players, events in reports:
+        all_game_info.append(game_info)
         all_player_stats.extend(players)
-        
-        # Spielereignisse
-        events = extract_game_events(text)
-        for event in events:
-            event['pdf_file'] = pdf_file
-            event['spielnummer'] = game_info.get('spielnummer')
         all_events.extend(events)
 
-# CSVs erstellen
-print(f"\n📊 Erstelle CSVs...")
+    df_games = pd.DataFrame(all_game_info, columns=GAME_COLUMNS)
+    df_players = pd.DataFrame(all_player_stats, columns=PLAYER_COLUMNS)
+    df_events = pd.DataFrame(all_events, columns=EVENT_COLUMNS)
 
-df_games = pd.DataFrame(all_game_info)
-df_players = pd.DataFrame(all_player_stats)
-df_events = pd.DataFrame(all_events)
+    # Datentypen anpassen
+    df_games = df_games.astype({
+        'endstand_heim': 'Int64',
+        'endstand_gast': 'Int64',
+        'halbzeit_heim': 'Int64',
+        'halbzeit_gast': 'Int64'
+    })
 
-# Datentypen anpassen
-df_games = df_games.astype({
-    'endstand_heim': 'Int64',
-    'endstand_gast': 'Int64',
-    'halbzeit_heim': 'Int64',
-    'halbzeit_gast': 'Int64'
-})
+    # Spieler-Datentypen
+    df_players = df_players.astype({
+        'tore': 'Int64',
+        'siebenmeter_tore': 'Int64',
+        'siebenmeter_versuche': 'Int64',
+        'zweiminuten_strafen': 'Int64',
+        'gelbe_karten': 'Int64'
+    })
 
-# Spieler-Datentypen
-df_players = df_players.astype({
-    'tore': 'Int64',
-    'siebenmeter_tore': 'Int64',
-    'siebenmeter_versuche': 'Int64',
-    'zweiminuten_strafen': 'Int64',
-    'gelbe_karten': 'Int64'
-})
+    df_events['stand_heim'] = df_events['stand_heim'].astype('Int64')
+    df_events['stand_gast'] = df_events['stand_gast'].astype('Int64')
 
-df_events['stand_heim'] = df_events['stand_heim'].astype('Int64')
-df_events['stand_gast'] = df_events['stand_gast'].astype('Int64')
+    # Duplikate entfernen (falls trotzdem welche entstehen)
+    df_players = df_players.drop_duplicates(subset=['spielnummer', 'team', 'trikotnummer'], keep='first')
 
-# Duplikate entfernen (falls trotzdem welche entstehen)
-df_players = df_players.drop_duplicates(subset=['spielnummer', 'team', 'trikotnummer'], keep='first')
+    df_games.to_csv(os.path.join(output_dir, GAMES_CSV), index=False, encoding='utf-8-sig')
+    df_players.to_csv(os.path.join(output_dir, PLAYERS_CSV), index=False, encoding='utf-8-sig')
+    df_events.to_csv(os.path.join(output_dir, EVENTS_CSV), index=False, encoding='utf-8-sig')
 
-print(f"  ✓ {len(df_games)} Spiele")
-print(f"  ✓ {len(df_players)} Spieler (nach Duplikat-Entfernung)")
-print(f"  ✓ {len(df_events)} Ereignisse")
+    return df_games, df_players, df_events
 
-# Speichern
-games_csv = os.path.join(PROCESSED_DIR, "spiele.csv")
-players_csv = os.path.join(PROCESSED_DIR, "spieler_statistiken.csv")
-events_csv = os.path.join(PROCESSED_DIR, "spielereignisse.csv")
 
-df_games.to_csv(games_csv, index=False, encoding='utf-8-sig')
-df_players.to_csv(players_csv, index=False, encoding='utf-8-sig')
-df_events.to_csv(events_csv, index=False, encoding='utf-8-sig')
+def main():
+    raw_dir = paths.raw_dir()
+    processed_dir = paths.processed_dir()
 
-print(f"\n✅ Erfolgreich verarbeitet!")
-print(f"📊 {games_csv}")
-print(f"👥 {players_csv}")
-print(f"⚡ {events_csv}")
+    reports = []
+    for pdf_file in os.listdir(raw_dir):
+        if not pdf_file.endswith(".pdf"):
+            continue
+        print(f"\n📄 Verarbeite: {pdf_file}")
+        reports.append(extract_report(os.path.join(raw_dir, pdf_file)))
 
-# Validierung
-print(f"\n🔍 Validierung:")
-# Prüfe auf echte Duplikate (gleiche Spielnummer, Team UND Trikotnummer)
-duplicates = df_players.groupby(['spielnummer', 'team', 'trikotnummer']).size()
-if (duplicates > 1).any():
-    print(f"⚠️  WARNUNG: {(duplicates > 1).sum()} Spieler erscheinen mehrfach!")
-    dup_mask = df_players.duplicated(subset=['spielnummer', 'team', 'trikotnummer'], keep=False)
-    print(df_players[dup_mask][['name', 'team', 'trikotnummer', 'spielnummer']])
-else:
-    print(f"✅ Keine Duplikate gefunden!")
-    
-# Prüfe Team-Größen
-team_sizes = df_players.groupby(['spielnummer', 'team']).size()
-print(f"\n📋 Team-Größen:")
-for (spiel, team), count in team_sizes.items():
-    print(f"   Spiel {spiel} - {team}: {count} Spieler")
+    # CSVs erstellen
+    print(f"\n📊 Erstelle CSVs...")
+    df_games, df_players, df_events = write_csvs(reports, processed_dir)
+
+    print(f"  ✓ {len(df_games)} Spiele")
+    print(f"  ✓ {len(df_players)} Spieler (nach Duplikat-Entfernung)")
+    print(f"  ✓ {len(df_events)} Ereignisse")
+
+    print(f"\n✅ Erfolgreich verarbeitet!")
+    print(f"📊 {os.path.join(processed_dir, GAMES_CSV)}")
+    print(f"👥 {os.path.join(processed_dir, PLAYERS_CSV)}")
+    print(f"⚡ {os.path.join(processed_dir, EVENTS_CSV)}")
+
+    # Validierung
+    print(f"\n🔍 Validierung:")
+    # Prüfe auf echte Duplikate (gleiche Spielnummer, Team UND Trikotnummer)
+    duplicates = df_players.groupby(['spielnummer', 'team', 'trikotnummer']).size()
+    if (duplicates > 1).any():
+        print(f"⚠️  WARNUNG: {(duplicates > 1).sum()} Spieler erscheinen mehrfach!")
+        dup_mask = df_players.duplicated(subset=['spielnummer', 'team', 'trikotnummer'], keep=False)
+        print(df_players[dup_mask][['name', 'team', 'trikotnummer', 'spielnummer']])
+    else:
+        print(f"✅ Keine Duplikate gefunden!")
+
+    # Prüfe Team-Größen
+    team_sizes = df_players.groupby(['spielnummer', 'team']).size()
+    print(f"\n📋 Team-Größen:")
+    for (spiel, team), count in team_sizes.items():
+        print(f"   Spiel {spiel} - {team}: {count} Spieler")
+
+
+if __name__ == "__main__":
+    main()

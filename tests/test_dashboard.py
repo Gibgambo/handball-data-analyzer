@@ -40,7 +40,8 @@ def test_staffel_laden_aus_dem_begruessungszustand(nuliga):
     app.button[0].click().run()
 
     assert not app.exception
-    assert app.title[0].value == "🤾 Handball Analytics Dashboard"
+    assert app.title[0].value == "🤾 Verbandsliga Männer Ost"
+    assert "HVNB 2025/26 · Stand:" in texte(app.caption)
     sidebar = texte(app.sidebar.info)
     assert "Geladene Staffel" in sidebar
     assert "HVNB 2025/26" in sidebar and "Verbandsliga Männer Ost" in sidebar
@@ -73,7 +74,7 @@ def test_aktualisieren_zeigt_neue_zahlen_ohne_neustart(nuliga):
     assert app.metric[0].value == "5"
 
 
-@pytest.mark.parametrize("seite", ["📊 Übersicht", "🏆 Top Spieler", "🏠 Heimvorteil", "⚽ Spielverlauf",
+@pytest.mark.parametrize("seite", ["📊 Übersicht", "🏆 Top Spieler", "🟨 Strafen", "🏠 Heimvorteil", "⚽ Spielverlauf",
                                    "🎯 7-Meter Analyse", "📈 Team-Vergleich", "⏱️ Zeitanalyse",
                                    "📋 Alle Statistiken"])
 def test_analyseseiten_mit_geladener_staffel(nuliga, seite):
@@ -83,6 +84,30 @@ def test_analyseseiten_mit_geladener_staffel(nuliga, seite):
     app.sidebar.radio[0].set_value(seite).run()
 
     assert not app.exception
+
+
+def test_uebersicht_nummeriert_ranglisten_ab_platz_eins(nuliga):
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
+
+    app = starten()
+
+    assert not app.exception
+    torschuetzen = [m.value for m in app.markdown if m.value.endswith("Tore")]
+    plaetze = [int(t.split(".**")[0].lstrip("*")) for t in torschuetzen]
+    assert plaetze[0] == 1
+    assert plaetze == sorted(plaetze)
+
+
+def test_strafen_haben_eine_eigene_seite(nuliga):
+    staffel.Staffelverwaltung(nuliga).staffel_wechseln(LINK_VORRUNDE)
+    app = starten()
+
+    app.sidebar.radio[0].set_value("🏆 Top Spieler").run()
+    assert not any("Strafen" in s.value or "Disqualifikationen" in s.value for s in app.subheader)
+
+    app.sidebar.radio[0].set_value("🟨 Strafen").run()
+    assert not app.exception
+    assert [s.value for s in app.subheader] == ["🟨 Strafen-Statistik", "🔴 Disqualifikationen"]
 
 
 def test_staffel_ohne_spiele_zeigt_hinweis_statt_diagrammen(nuliga):

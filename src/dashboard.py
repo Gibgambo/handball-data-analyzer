@@ -199,6 +199,13 @@ DATEN_VERWALTEN = "⚙️ Daten verwalten"
 LINK_PLATZHALTER = "https://…liga.nu/cgi-bin/WebObjects/nuLigaHBDE.woa/wa/groupPage?championship=…&group=…"
 
 
+def mit_rang(df, spalte):
+    """Ergänzt eine absteigend sortierte Rangliste um sportliche Plätze (Gleichstand teilt den Platz: 1, 2, 2, 4)."""
+    df = df.reset_index(drop=True)
+    df.insert(0, 'rang', df[spalte].rank(method='min', ascending=False).astype(int))
+    return df
+
+
 def import_ausfuehren(ort, beschriftung, aktion):
     """Führt einen Import mit Statusanzeige aus; bei Erfolg wird der Cache geleert und neu geladen."""
     with ort.status(beschriftung, expanded=True) as status:
@@ -251,10 +258,11 @@ st.sidebar.markdown("---")
 
 page = st.sidebar.radio(
     "Navigation",
-    ["📊 Übersicht", "🏆 Top Spieler", "🏠 Heimvorteil", "⚽ Spielverlauf",
+    ["📊 Übersicht", "🏆 Top Spieler", "🟨 Strafen", "🏠 Heimvorteil", "⚽ Spielverlauf",
      "🎯 7-Meter Analyse", "📈 Team-Vergleich", "⏱️ Zeitanalyse", "📋 Alle Statistiken",
      DATEN_VERWALTEN],
-    key="seite"
+    key="seite",
+    label_visibility="collapsed"
 )
 
 st.sidebar.markdown("---")
@@ -333,8 +341,8 @@ elif not hat_spiele:
 
 # SEITE: ÜBERSICHT
 elif page == "📊 Übersicht":
-    st.title("🤾 Handball Analytics Dashboard")
-    st.markdown("### Willkommen zur umfassenden Handball-Datenanalyse!")
+    st.title(f"🤾 {staffel.staffelname or staffel.saison}")
+    st.caption(f"{staffel.saison} · Stand: {staffel.aktualisiert_am:%d.%m.%Y, %H:%M} Uhr")
     
     # Key Metrics
     col1, col2, col3, col4 = st.columns(4)
@@ -363,8 +371,8 @@ elif page == "📊 Übersicht":
         st.subheader("🎯 Top 5 Torschützen")
         top_scorer = analyzer.get_top_scorer(5)
         if len(top_scorer) > 0:
-            for idx, row in top_scorer.iterrows():
-                st.markdown(f"**{idx+1}.** {row['name']} ({row['team'][:20]}...) - **{int(row['tore'])}** Tore")
+            for _, row in mit_rang(top_scorer, 'tore').iterrows():
+                st.markdown(f"**{row['rang']}.** {row['name']} ({row['team'][:20]}...) - **{int(row['tore'])}** Tore")
         else:
             st.warning("Keine Daten verfügbar")
     
@@ -372,8 +380,8 @@ elif page == "📊 Übersicht":
         st.subheader("🏆 Team-Rankings")
         team_stats = analyzer.get_team_statistics()
         if len(team_stats) > 0:
-            for idx, row in team_stats.head(5).iterrows():
-                st.markdown(f"**{idx+1}.** {row['team'][:20]}... - **{row['siegquote']:.1f}%** Siegquote")
+            for platz, (_, row) in enumerate(team_stats.head(5).iterrows(), start=1):
+                st.markdown(f"**{platz}.** {row['team'][:20]}... - **{row['siegquote']:.1f}%** Siegquote")
         else:
             st.warning("Keine Team-Daten verfügbar")
     
@@ -381,8 +389,8 @@ elif page == "📊 Übersicht":
         st.subheader("⚠️ Top 5 Strafen")
         penalties = analyzer.get_penalty_statistics()
         if len(penalties) > 0:
-            for idx, row in penalties.head(5).iterrows():
-                st.markdown(f"**{idx+1}.** {row['spieler'][:20]}... - **{int(row['anzahl_strafen'])}** Strafen")
+            for _, row in mit_rang(penalties, 'anzahl_strafen').head(5).iterrows():
+                st.markdown(f"**{row['rang']}.** {row['spieler'][:20]}... - **{int(row['anzahl_strafen'])}** Strafen")
         else:
             st.info("Keine Strafen")
     
@@ -440,10 +448,8 @@ elif page == "🏆 Top Spieler":
         st.subheader("📋 Detaillierte Liste")
         top_scorer = analyzer.get_top_scorer(top_n)
         if len(top_scorer) > 0:
-            display_df = top_scorer.copy()
-            display_df.columns = ['Spieler', 'Team', 'Tore']
-            display_df['Rang'] = range(1, len(display_df) + 1)
-            display_df = display_df[['Rang', 'Spieler', 'Team', 'Tore']]
+            display_df = mit_rang(top_scorer, 'tore')
+            display_df.columns = ['Rang', 'Spieler', 'Team', 'Tore']
             st.dataframe(display_df, width='stretch', hide_index=True)
             
             csv = display_df.to_csv(index=False).encode('utf-8')
@@ -453,17 +459,19 @@ elif page == "🏆 Top Spieler":
                 file_name="top_scorer.csv",
                 mime="text/csv"
             )
-    
-    st.markdown("---")
-    
+
+# SEITE: STRAFEN
+elif page == "🟨 Strafen":
+    st.title("🟨 Strafen-Analyse")
+
     # Strafen-Statistik
     st.subheader("🟨 Strafen-Statistik")
     penalties = analyzer.get_penalty_statistics()
     if len(penalties) > 0:
         col1, col2 = st.columns([1, 2])
         with col1:
-            display_df = penalties.head(10).copy()
-            display_df.columns = ['Spieler', 'Team', 'Strafen']
+            display_df = mit_rang(penalties, 'anzahl_strafen')
+            display_df.columns = ['Rang', 'Spieler', 'Team', 'Strafen']
             st.dataframe(display_df, width='stretch', hide_index=True)
         with col2:
             fig = visualizer.plot_penalty_statistics(save=False)
